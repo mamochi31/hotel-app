@@ -1,0 +1,51 @@
+* {
+  box-sizing: border-box;
+}
+
+header {
+  background-color: rgb(200, 200, 200);
+  height: 10vh;
+}
+
+.menu_bar {
+  display: flex;
+  height: 10vh;
+  align-items: center;
+}
+
+.menu_new {
+}
+
+.menu_seach {
+}
+
+.btn {
+  text-align: center;
+  line-height:9vh;
+  width: 9vw;
+  height: 9vh;
+  font-size: 1vh;
+  font-size: 1vw;
+  margin: 1px;
+  display: inline-block;
+  text-decoration: none;
+  color: black;
+  background: lightgray;/*背景色*/
+  border-right: solid 1px rgb(180, 180, 180);
+  border-bottom: solid 2px rgb(180, 180, 180);/*少し濃い目の色に*/
+  box-shadow: inset 0 2px 0 rgba(255,255,255,0.2), 0 2px 2px rgba(0, 0, 0, 0.19);
+}
+
+.btn:active {
+  border-right: 1px;
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+}
+
+.main {
+  height: calc(100vh - 10vh - 3vh);
+  background-color: gray;
+}
+footer {
+  background-color: lightgray;
+  height: 3vh;
+}
