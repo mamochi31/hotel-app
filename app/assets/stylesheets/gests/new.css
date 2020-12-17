@@ -1,0 +1,130 @@
+.head {
+  height: 7vh;
+  width: 14vw;
+  font-size: 2vh;
+  font-size: 2vw;
+  background-color: darkblue;
+  color: white;
+  text-align: center;
+  line-height: 7vh;
+  margin: 2vh 0 4vh 1vw;
+}
+
+.main {
+  background-color: white;
+  margin: 2vh 1vw;
+  font-size: 1vh;
+  font-size: 1vw;
+}
+
+.top_title {
+  display: flex;
+}
+
+input {
+  resize: none;
+  height: 5vh;
+}
+
+.title {
+  height: 5vh;
+  width: 7vw;
+  border: 1px solid black;
+  font-size: 1vh;
+  font-size: 1vw;
+  text-align: center;
+  line-height: 5vh;
+  background-color: lightblue;
+}
+
+.name_kana {
+  width: 20vw;
+  margin-left: 7vw;
+}
+
+.element {
+  display: flex;
+}
+
+.gest_name_form {
+  margin-left: 0;
+}
+
+.sex {
+  width: 5vw;
+}
+
+.rank {
+  width: 5vw;
+}
+
+.memo {
+  width: 40vw;
+}
+
+.company_form {
+  width: 30vw;
+}
+
+.phone_number_form {
+  width: 20vw;
+}
+
+.arr_date_form {
+  width: 20vw;
+}
+
+.dep_date_form {
+  width: 20vw;
+}
+
+.night_form {
+  width: 5vw;
+}
+
+.people {
+  width: 5vw;
+}
+
+.room {
+  width: 5vw;
+}
+
+.room_form {
+  width: 10vw;
+}
+
+.plan_form {
+  width: 5vw;
+}
+
+.plan_name {
+  border: 1px solid black;
+  width: 25vw;
+}
+
+.price {
+  border: 1px solid black;
+  width: 15vw;
+}
+
+.tag_form {
+  width: 5vw;
+}
+
+.area_form {
+  width: 10vw;
+}
+
+.at_title {
+  margin: 0 0 0 auto;
+}
+
+.at {
+  border: 1px solid black;
+  width: 15vw;
+}
+
+.remark_form {
+  width: 60vw;
+}
