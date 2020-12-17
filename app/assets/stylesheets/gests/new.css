@@ -7,7 +7,7 @@
   color: white;
   text-align: center;
   line-height: 7vh;
-  margin: 2vh 0 4vh 1vw;
+  margin: 2vh 0 2vh 1vw;
 }
 
 .main {
@@ -127,4 +127,9 @@ input {
 
 .remark_form {
   width: 60vw;
+}
+
+.registration-btn {
+  margin: 2vh 2vw 0 90vw;
+  width: 7vw;
 }
