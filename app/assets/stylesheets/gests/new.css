@@ -123,6 +123,7 @@ input {
 .at {
   border: 1px solid black;
   width: 15vw;
+  margin-right: 1vw;
 }
 
 .remark_form {
