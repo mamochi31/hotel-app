@@ -31,7 +31,7 @@
 | adult             | integer    | null: false                    |
 | child             | integer    |                                |
 | baby              | integer    |                                |
-| number_of_room_id | integer    | null: false                    |
+| number_of_room    | integer    | null: false                    |
 | sex_id            | integer    |                                |
 | rank              | references |                                |
 | room_type         | references | null: false, foreign_key: true |
