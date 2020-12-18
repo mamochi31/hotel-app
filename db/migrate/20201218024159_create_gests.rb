@@ -20,11 +20,11 @@ class CreateGests < ActiveRecord::Migration[6.0]
       t.integer    :baby
       t.integer    :number_of_room, null: false
       t.integer    :sex_id
-      t.references :rank
-      t.references :room_type, null: false
-      t.references :room
-      t.references :plan,      null: false
-      t.references :area
+      # t.references :rank
+      # t.references :room_type, null: false
+      # t.references :room
+      # t.references :plan,      null: false
+      # t.references :area
       t.references :user,      null: false, foreign_key: true
       t.timestamps
     end

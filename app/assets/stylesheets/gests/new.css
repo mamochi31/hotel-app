@@ -17,6 +17,10 @@
   font-size: 1vw;
 }
 
+.required {
+  background-color: lightyellow;
+}
+
 .top_title {
   display: flex;
 }

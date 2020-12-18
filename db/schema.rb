@@ -32,19 +32,9 @@ ActiveRecord::Schema.define(version: 2020_12_18_024159) do
     t.integer "baby"
     t.integer "number_of_room", null: false
     t.integer "sex_id"
-    t.bigint "rank_id"
-    t.bigint "room_type_id", null: false
-    t.bigint "room_id"
-    t.bigint "plan_id", null: false
-    t.bigint "area_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["area_id"], name: "index_gests_on_area_id"
-    t.index ["plan_id"], name: "index_gests_on_plan_id"
-    t.index ["rank_id"], name: "index_gests_on_rank_id"
-    t.index ["room_id"], name: "index_gests_on_room_id"
-    t.index ["room_type_id"], name: "index_gests_on_room_type_id"
     t.index ["user_id"], name: "index_gests_on_user_id"
   end
 
