@@ -1,10 +1,10 @@
 <header>
   <div class="menu_bar">
     <div class="menu">
-      <a href="#" class="btn">メニュー</a>
+      <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
     </div>
     <div class="menu_new">
-      <a href="#" class="btn">予約登録</a>
+      <%= link_to "予約登録", new_gest_path, class: 'btn'%>
     </div>
     <div class="menu_search">
       <a href="#" class="btn">予約検索</a>
