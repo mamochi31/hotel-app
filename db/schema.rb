@@ -10,7 +10,43 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_17_074953) do
+ActiveRecord::Schema.define(version: 2020_12_18_024159) do
+
+  create_table "gests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name1_kana", null: false
+    t.string "name1_kanji"
+    t.string "name2_kana"
+    t.string "name2_kanji"
+    t.string "name3_kana"
+    t.string "name3_kanji"
+    t.string "memo"
+    t.string "company_kana"
+    t.string "company_kanji"
+    t.string "phone_number", null: false
+    t.string "remark"
+    t.date "arr_date", null: false
+    t.date "dep_date", null: false
+    t.integer "night", null: false
+    t.integer "adult", null: false
+    t.integer "child"
+    t.integer "baby"
+    t.integer "number_of_room", null: false
+    t.integer "sex_id"
+    t.bigint "rank_id"
+    t.bigint "room_type_id", null: false
+    t.bigint "room_id"
+    t.bigint "plan_id", null: false
+    t.bigint "area_id"
+    t.bigint "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["area_id"], name: "index_gests_on_area_id"
+    t.index ["plan_id"], name: "index_gests_on_plan_id"
+    t.index ["rank_id"], name: "index_gests_on_rank_id"
+    t.index ["room_id"], name: "index_gests_on_room_id"
+    t.index ["room_type_id"], name: "index_gests_on_room_type_id"
+    t.index ["user_id"], name: "index_gests_on_user_id"
+  end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -25,4 +61,5 @@ ActiveRecord::Schema.define(version: 2020_12_17_074953) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "gests", "users"
 end

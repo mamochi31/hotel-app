@@ -14,14 +14,14 @@
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| name1_kane        | string     | null: false                    |
+| name1_kana        | string     | null: false                    |
 | name1_kanji       | string     |                                |
-| name2_kane        | string     |                                |
+| name2_kana        | string     |                                |
 | name2_kanji       | string     |                                |
-| name3_kane        | string     |                                |
+| name3_kana        | string     |                                |
 | name3_kanji       | string     |                                |
 | memo              | string     |                                |
-| company_kane      | string     |                                |
+| company_kana      | string     |                                |
 | company_kanji     | string     |                                |
 | phone_number      | string     | null: false                    |
 | remark            | string     |                                |
@@ -33,7 +33,7 @@
 | baby              | integer    |                                |
 | number_of_room    | integer    | null: false                    |
 | sex_id            | integer    |                                |
-| rank              | references |                                |
+| rank              | references | foreign_key: true              |
 | room_type         | references | null: false, foreign_key: true |
 | room              | references | foreign_key: true              |
 | plan              | references | null: false, foreign_key: true |
