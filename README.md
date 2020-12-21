@@ -87,7 +87,7 @@
 
 | Column   | Type    | Options     |
 | -------- | ------- | ----------- |
-| cd       | string  | null: false |
+| code     | string  | null: false |
 | name     | string  | null: false |
 | capacity | integer | null: false |
 
@@ -119,11 +119,11 @@
 
 ## Plansテーブル
 
-| Column  | Type   | Options     |
-| ------- | ------ | ----------- |
-| cd      | string | null: false |
-| content | string | null: false |
-| price   | string | null: false |
+| Column | Type    | Options     |
+| ------ | ------- | ----------- |
+| code   | string  | null: false |
+| name   | string  | null: false |
+| price  | integer | null: false |
 
 ### Association
 
@@ -177,7 +177,24 @@
 - belongs_to :gest
 - belongs_to :tag
 
-## Active Hash
+## Sexsテーブル
 
-- sex
-- area
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| code   | string     | null: false |
+| name   | string     | null: false |
+
+### Association
+
+- has_many :gest
+
+## Areasテーブル
+
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| code   | string     | null: false |
+| name   | string     | null: false |
+
+### Association
+
+- has_many :gest
