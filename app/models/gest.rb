@@ -3,8 +3,9 @@ class Gest < ApplicationRecord
   belongs_to :user
   # belongs_to :room_type
   # belongs_to :plan
+  
   belongs_to :sex,  optional: true
-  # belongs_to :rank, optional: true
+  belongs_to :rank, optional: true
   # belongs_to :room, optional: true
   # belongs_to :area, optional: true
 
@@ -17,5 +18,7 @@ class Gest < ApplicationRecord
     validates :name1_kana, :phone_number, :arr_date, :dep_date, :night, :adult, :number_of_room
   end
 
-  validates :sex_id, numericality: { greater_than_or_equal_to: 1, less_than_or_equal_to: 3 }, allow_nil: true
+  with_options numericality: { only_integer: true }, allow_nil: true do
+    validates :sex_id, :rank_id
+  end
 end

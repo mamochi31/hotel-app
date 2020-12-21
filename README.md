@@ -25,6 +25,8 @@
 | company_kanji     | string     |                                |
 | phone_number      | string     | null: false                    |
 | remark            | string     |                                |
+| rank_id           | string     |                                |
+| sex_id            | string     |                                |
 | arr_date          | date       | null: false                    |
 | dep_date          | date       | null: false                    |
 | night             | integer    | null: false                    |
@@ -32,8 +34,6 @@
 | child             | integer    |                                |
 | baby              | integer    |                                |
 | number_of_room    | integer    | null: false                    |
-| sex_id            | integer    |                                |
-| rank              | references | foreign_key: true              |
 | room_type         | references | null: false, foreign_key: true |
 | room              | references | foreign_key: true              |
 | plan              | references | null: false, foreign_key: true |
@@ -57,10 +57,10 @@
 
 ## Ranksテーブル
 
-| Column  | Type       | Options     |
-| ------- | ---------- | ----------- |
-| cd      | string     | null: false |
-| content | string     | null: false |
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| code   | string     | null: false |
+| name   | string     | null: false |
 
 ### Association
 

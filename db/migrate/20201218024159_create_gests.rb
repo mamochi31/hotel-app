@@ -13,6 +13,7 @@ class CreateGests < ActiveRecord::Migration[6.0]
       t.string     :phone_number, null: false
       t.string     :remark
       t.string     :sex_id
+      t.string     :rank_id
       t.date       :arr_date, null: false
       t.date       :dep_date, null: false
       t.integer    :night, null: false
@@ -20,11 +21,10 @@ class CreateGests < ActiveRecord::Migration[6.0]
       t.integer    :child
       t.integer    :baby
       t.integer    :number_of_room, null: false
-      # t.references :rank
-      # t.references :room_type, null: false
-      # t.references :room
-      # t.references :plan,      null: false
-      # t.references :area
+      # t.string  :room_type, null: false
+      # t.integer :room
+      # t.string  :plan,      null: false
+      # t.string  :area
       t.references :user,      null: false, foreign_key: true
       t.timestamps
     end

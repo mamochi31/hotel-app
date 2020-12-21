@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_18_101706) do
+ActiveRecord::Schema.define(version: 2020_12_21_022316) do
 
   create_table "gests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name1_kana", null: false
@@ -25,6 +25,7 @@ ActiveRecord::Schema.define(version: 2020_12_18_101706) do
     t.string "phone_number", null: false
     t.string "remark"
     t.string "sex_id"
+    t.string "rank_id"
     t.date "arr_date", null: false
     t.date "dep_date", null: false
     t.integer "night", null: false
@@ -36,6 +37,13 @@ ActiveRecord::Schema.define(version: 2020_12_18_101706) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_gests_on_user_id"
+  end
+
+  create_table "ranks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "code", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "sexes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
