@@ -1,9 +1,9 @@
 class Gest < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  # belongs_to :room_type
+  belongs_to :room_type
   # belongs_to :plan
-  
+
   belongs_to :sex,  optional: true
   belongs_to :rank, optional: true
   # belongs_to :room, optional: true
@@ -21,4 +21,6 @@ class Gest < ApplicationRecord
   with_options numericality: { only_integer: true }, allow_nil: true do
     validates :sex_id, :rank_id
   end
+
+  validates :room_type_id, numericality: { only_integer: true }
 end

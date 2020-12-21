@@ -14,6 +14,7 @@ class CreateGests < ActiveRecord::Migration[6.0]
       t.string     :remark
       t.string     :sex_id
       t.string     :rank_id
+      t.string     :room_type_id, null: false
       t.date       :arr_date, null: false
       t.date       :dep_date, null: false
       t.integer    :night, null: false
@@ -21,7 +22,6 @@ class CreateGests < ActiveRecord::Migration[6.0]
       t.integer    :child
       t.integer    :baby
       t.integer    :number_of_room, null: false
-      # t.string  :room_type, null: false
       # t.integer :room
       # t.string  :plan,      null: false
       # t.string  :area

@@ -22,7 +22,7 @@ class GestsController < ApplicationController
   def gest_params
     params.require(:gest).permit(
       :name1_kana, :name1_kanji, :name2_kana, :name2_kanji, :name3_kana, :name3_kanji, :memo, :company_kana, :company_kanji,
-      :phone_number, :remark, :arr_date, :dep_date, :night, :adult, :child, :baby, :number_of_room, :sex_id, :rank_id
+      :phone_number, :remark, :arr_date, :dep_date, :night, :adult, :child, :baby, :number_of_room, :sex_id, :rank_id, :room_type_id
     ).merge(user_id: current_user.id)
   end
 
@@ -32,5 +32,8 @@ class GestsController < ApplicationController
 
     rank = Rank.where(code: @gest.rank_id)
     @gest.rank_id = rank.ids[0]
+
+    room_type = RoomType.where(code: @gest.room_type_id)
+    @gest.room_type_id = room_type.ids[0]
   end
 end
