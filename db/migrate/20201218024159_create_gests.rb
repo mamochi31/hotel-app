@@ -12,6 +12,7 @@ class CreateGests < ActiveRecord::Migration[6.0]
       t.string     :company_kanji
       t.string     :phone_number, null: false
       t.string     :remark
+      t.string     :sex_id
       t.date       :arr_date, null: false
       t.date       :dep_date, null: false
       t.integer    :night, null: false
@@ -19,7 +20,6 @@ class CreateGests < ActiveRecord::Migration[6.0]
       t.integer    :child
       t.integer    :baby
       t.integer    :number_of_room, null: false
-      t.integer    :sex_id
       # t.references :rank
       # t.references :room_type, null: false
       # t.references :room
