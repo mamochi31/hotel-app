@@ -9,10 +9,10 @@ class Gest < ApplicationRecord
   # belongs_to :room, optional: true
   belongs_to :area, optional: true
 
-  # has_many :gests_rooms
-  # has_many :rooms, through: :gests_rooms
-  # has_many :gests_tags
-  # has_many :tags, through: :gests_tags
+  # has_many :gest_rooms
+  # has_many :rooms, through: :gest_rooms
+  has_many :gest_tags, dependent: :destroy
+  has_many :tags, through: :gest_tags
 
   with_options presence: true do
     validates :name1_kana, :phone_number, :arr_date, :dep_date, :night, :adult, :number_of_room

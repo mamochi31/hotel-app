@@ -75,11 +75,11 @@
       </div>
       <div class="element">
         <div class="title">リクエスト</div>
-        <%= f.text_field :tag, class:"tag_form", id:"tag_form", maxlength:"3"%>
-        <%= f.text_field :tag, class:"tag_form", id:"tag_form", maxlength:"3"%>
-        <%= f.text_field :tag, class:"tag_form", id:"tag_form", maxlength:"3"%>
-        <%= f.text_field :tag, class:"tag_form", id:"tag_form", maxlength:"3"%>
-        <%= f.text_field :tag, class:"tag_form", id:"tag_form", maxlength:"3"%>
+        <%#= text_field_tag 'codes[]'%>
+        <input class="tag_form" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
+        <input class="tag_form" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
+        <input class="tag_form" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
+        <%#= f.text_field :code, class:"tag_form", id:"tag_form", maxlength:"3"%>
       </div>
       <div class="element">
         <div class="title area">地域</div>

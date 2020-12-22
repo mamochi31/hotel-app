@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_12_21_064117) do
+ActiveRecord::Schema.define(version: 2020_12_21_074435) do
 
   create_table "areas", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "code", null: false
@@ -19,13 +19,19 @@ ActiveRecord::Schema.define(version: 2020_12_21_064117) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "gest_tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "gest_id"
+    t.bigint "tag_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["gest_id"], name: "index_gest_tags_on_gest_id"
+    t.index ["tag_id"], name: "index_gest_tags_on_tag_id"
+  end
+
   create_table "gests", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name1_kana", null: false
-    t.string "name1_kanji"
     t.string "name2_kana"
-    t.string "name2_kanji"
     t.string "name3_kana"
-    t.string "name3_kanji"
     t.string "memo"
     t.string "company_kana"
     t.string "company_kanji"
@@ -79,6 +85,13 @@ ActiveRecord::Schema.define(version: 2020_12_21_064117) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "code", null: false
+    t.string "name", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
     t.string "email", default: "", null: false
@@ -92,5 +105,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_064117) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "gest_tags", "gests"
+  add_foreign_key "gest_tags", "tags"
   add_foreign_key "gests", "users"
 end

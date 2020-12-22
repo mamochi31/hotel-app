@@ -2,11 +2,8 @@ class CreateGests < ActiveRecord::Migration[6.0]
   def change
     create_table :gests do |t|
       t.string     :name1_kana,  null: false
-      t.string     :name1_kanji
       t.string     :name2_kana
-      t.string     :name2_kanji
       t.string     :name3_kana
-      t.string     :name3_kanji
       t.string     :memo
       t.string     :company_kana
       t.string     :company_kanji

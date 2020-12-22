@@ -7,10 +7,12 @@ class GestsController < ApplicationController
   end
 
   def create
-    binding.pry
+    # binding.pry
     @gest = Gest.new(gest_params)
     change_num
-    if @gest.save
+    if @gest.valid?
+      @gest.save
+      gest_tags_save
       redirect_to root_path
     else
       render :new
@@ -21,9 +23,16 @@ class GestsController < ApplicationController
 
   def gest_params
     params.require(:gest).permit(
-      :name1_kana, :name1_kanji, :name2_kana, :name2_kanji, :name3_kana, :name3_kanji, :memo, :company_kana, :company_kanji,
+      :name1_kana, :name2_kana, :name3_kana, :memo, :company_kana, :company_kanji,
       :phone_number, :remark, :arr_date, :dep_date, :night, :adult, :child, :baby, :number_of_room, :sex_id, :rank_id, :room_type_id, :plan_id, :area_id
     ).merge(user_id: current_user.id)
+  end
+
+  def gest_tags_save
+    params.require(:gest_data_assign)[:code].each do |code|
+      @tag = Tag.where(code: code).ids[0]
+      GestTag.create(gest_id: @gest.id, tag_id: @tag)
+    end
   end
 
   def change_num
@@ -42,4 +51,5 @@ class GestsController < ApplicationController
     area = Area.where(code: @gest.area_id)
     @gest.area_id = area.ids[0]
   end
+
 end

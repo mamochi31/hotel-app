@@ -64,7 +64,7 @@
 
 ### Association
 
-- has_many :gest
+- has_many :gests
 
 ## Roomsテーブル
 
@@ -101,10 +101,10 @@
 
 ## Tagsテーブル
 
-| Column    | Type   | Options     |
-| --------- | ------ | ----------- |
-| cd        | string | null: false |
-| content   | string | null: false |
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| code   | string | null: false |
+| name   | string | null: false |
 
 ### Association
 
@@ -129,7 +129,7 @@
 
 - has_many :gest
 
-## Gests_roomsテーブル
+## Gest_roomsテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -141,7 +141,7 @@
 - belongs_to :gest
 - belongs_to :room
 
-## Rooms_tagsテーブル
+## Room_tagsテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -153,7 +153,7 @@
 - belongs_to :room
 - belongs_to :tag
 
-## Room_types_tagsテーブル
+## Room_type_tagsテーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -165,7 +165,7 @@
 - belongs_to :room_type
 - belongs_to :tag
 
-## Gests_tagsテーブル
+## Gest_tagsテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
