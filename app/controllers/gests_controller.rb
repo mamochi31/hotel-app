@@ -13,11 +13,17 @@ class GestsController < ApplicationController
     if @gest.valid?
       @gest.save
       gest_tags_save
-      redirect_to root_path
+      redirect_to gest_path(@gest.id)
     else
       render :new
     end
   end
+
+  def show
+    @gest = Gest.find(params[:id])
+  end
+
+  
 
   private
 
