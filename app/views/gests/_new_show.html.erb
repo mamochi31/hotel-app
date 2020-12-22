@@ -10,8 +10,8 @@
       <div class="element">
         <div class="title">ゲスト１</div>
         <%= f.text_field :name1_kana, class:"gest_name_form name_kana required", id:"gest_name1", maxlength:"20"%>
-        <%= f.text_field :sex_id, class:"sex_form sex", id:"sex_form", maxlength:"1"%>
-        <%= f.text_field :rank_id, class:"rank_form rank", id:"rank_form", maxlength:"4"%>
+        <%= f.text_field :sex_id, class:"sex_form sex center", id:"sex_form", maxlength:"1"%>
+        <%= f.text_field :rank_id, class:"rank_form rank center", id:"rank_form", maxlength:"4"%>
         <%= f.text_field :memo, class:"memo_form memo", id:"memo_form", maxlength:"40"%>
       </div>
       <div class="element">
@@ -60,36 +60,52 @@
       <div class="element">
         <div class="title">プラン</div>
         <%= f.text_field :plan_id, class:"plan_form required", id:"plan_form", maxlength:"5"%>
-        <%# /プラン名を表示 %>
-        <div class="plan_name">プラン名</div>
-        <%# //プラン名を表示 %>
+        <div class="plan_name">
+          <% unless @gest.plan_id == nil %>
+            <%= @plan.name %>
+          <% end %>
+        </div>
       </div>
       <div class="element">
         <div class="title price_title">料金</div>
-        <%# /プランの料金を表示 %>
-        <div class="price">単価</div>
-        <div class="price">合計</div>
-        <%# //プランの料金を表示 %>
+        <div class="price">
+          <% unless @gest.plan_id == nil %>
+            <%= "#{@plan.price}円" %>
+          <% end %>
+        </div>
+        <div class="price">
+          <% unless @gest.plan_id == nil %>
+            <%= "#{@plan.price * (@gest.adult + @gest.child)}円" %>
+          <% end %>
+        </div>
       </div>
       <div class="element">
         <div class="title">リクエスト</div>
-        <input class="tag_form" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
-        <input class="tag_form" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
-        <input class="tag_form" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
-        <input class="tag_form" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
-        <input class="tag_form" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
+        <input class="tag_form center" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
+        <input class="tag_form center" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
+        <input class="tag_form center" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
+        <input class="tag_form center" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
+        <input class="tag_form center" id="tag_form" maxlength="3" size="3" type="text" name="gest_data_assign[code][]">
       </div>
       <div class="element">
         <div class="title area">地域</div>
-        <%= f.text_field :area_id, class:"area_form", id:"area_form", maxlength:"4"%>
+        <%= f.text_field :area_id, class:"area_form center", id:"area_form", maxlength:"4"%>
         <div class="title at_title">登録日</div>
-        <div class="at">○月○日</div>
+        <div class="at">
+          <% unless @gest.id == nil %>
+            <%= "#{l @gest.created_at} #{@gest.user.name}" %>
+          <% end %>
+        </div>
       </div>
       <div class="element">
         <div class="title">備考</div>
         <%= f.text_field :remark, class:"remark_form", id:"remark_form", maxlength:"50"%>
         <div class="title at_title">更新日</div>
-        <div class="at">○月○日</div>
+        <div class="at">
+          <% unless @gest.id == nil %>
+            <%= "#{l @gest.updated_at} #{@gest.user.name}" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <input type="button" onclick="submit();" name="commit" value="登録" class="registration-btn" data-disable-with="登録">

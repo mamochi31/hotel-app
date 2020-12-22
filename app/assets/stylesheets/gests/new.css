@@ -1,3 +1,9 @@
+* {
+  font-size: 1vh;
+  font-size: 1vw;
+  line-height: 5vh;
+}
+
 .head {
   height: 7vh;
   width: 14vw;
@@ -13,8 +19,6 @@
 .main {
   background-color: white;
   margin: 2vh 1vw;
-  font-size: 1vh;
-  font-size: 1vw;
 }
 
 .required {
@@ -35,11 +39,12 @@ input {
   height: 5vh;
   width: 7vw;
   border: 1px solid black;
-  font-size: 1vh;
-  font-size: 1vw;
   text-align: center;
-  line-height: 5vh;
   background-color: lightblue;
+}
+
+.center {
+  text-align: center;
 }
 
 .name_kana {
@@ -78,7 +83,8 @@ input {
 
 .price {
   border: 1px solid black;
-  width: 15vw;
+  width: 10vw;
+  text-align: right;
 }
 
 .at_title {
@@ -87,7 +93,7 @@ input {
 
 .at {
   border: 1px solid black;
-  width: 15vw;
+  width: 17vw;
   margin-right: 1vw;
 }
 
@@ -98,4 +104,9 @@ input {
 .registration-btn {
   margin: 2vh 2vw 0 90vw;
   width: 7vw;
+}
+
+.plan_name, .price, .at {
+  height: 5vh;
+  background-color: lightgray;
 }
