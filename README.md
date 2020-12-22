@@ -14,17 +14,19 @@
 
 | Column            | Type       | Options                        |
 | ----------------- | ---------- | ------------------------------ |
-| name1_kane        | string     | null: false                    |
+| name1_kana        | string     | null: false                    |
 | name1_kanji       | string     |                                |
-| name2_kane        | string     |                                |
+| name2_kana        | string     |                                |
 | name2_kanji       | string     |                                |
-| name3_kane        | string     |                                |
+| name3_kana        | string     |                                |
 | name3_kanji       | string     |                                |
 | memo              | string     |                                |
-| company_kane      | string     |                                |
+| company_kana      | string     |                                |
 | company_kanji     | string     |                                |
 | phone_number      | string     | null: false                    |
 | remark            | string     |                                |
+| rank_id           | string     |                                |
+| sex_id            | string     |                                |
 | arr_date          | date       | null: false                    |
 | dep_date          | date       | null: false                    |
 | night             | integer    | null: false                    |
@@ -32,8 +34,6 @@
 | child             | integer    |                                |
 | baby              | integer    |                                |
 | number_of_room    | integer    | null: false                    |
-| sex_id            | integer    |                                |
-| rank              | references |                                |
 | room_type         | references | null: false, foreign_key: true |
 | room              | references | foreign_key: true              |
 | plan              | references | null: false, foreign_key: true |
@@ -57,14 +57,14 @@
 
 ## Ranksテーブル
 
-| Column  | Type       | Options     |
-| ------- | ---------- | ----------- |
-| cd      | string     | null: false |
-| content | string     | null: false |
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| code   | string     | null: false |
+| name   | string     | null: false |
 
 ### Association
 
-- has_many :gest
+- has_many :gests
 
 ## Roomsテーブル
 
@@ -87,7 +87,7 @@
 
 | Column   | Type    | Options     |
 | -------- | ------- | ----------- |
-| cd       | string  | null: false |
+| code     | string  | null: false |
 | name     | string  | null: false |
 | capacity | integer | null: false |
 
@@ -101,10 +101,10 @@
 
 ## Tagsテーブル
 
-| Column    | Type   | Options     |
-| --------- | ------ | ----------- |
-| cd        | string | null: false |
-| content   | string | null: false |
+| Column | Type   | Options     |
+| ------ | ------ | ----------- |
+| code   | string | null: false |
+| name   | string | null: false |
 
 ### Association
 
@@ -119,17 +119,17 @@
 
 ## Plansテーブル
 
-| Column  | Type   | Options     |
-| ------- | ------ | ----------- |
-| cd      | string | null: false |
-| content | string | null: false |
-| price   | string | null: false |
+| Column | Type    | Options     |
+| ------ | ------- | ----------- |
+| code   | string  | null: false |
+| name   | string  | null: false |
+| price  | integer | null: false |
 
 ### Association
 
 - has_many :gest
 
-## Gests_roomsテーブル
+## Gest_roomsテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -141,7 +141,7 @@
 - belongs_to :gest
 - belongs_to :room
 
-## Rooms_tagsテーブル
+## Room_tagsテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -153,7 +153,7 @@
 - belongs_to :room
 - belongs_to :tag
 
-## Room_types_tagsテーブル
+## Room_type_tagsテーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -165,7 +165,7 @@
 - belongs_to :room_type
 - belongs_to :tag
 
-## Gests_tagsテーブル
+## Gest_tagsテーブル
 
 | Column | Type       | Options                        |
 | ------ | ---------- | ------------------------------ |
@@ -177,7 +177,24 @@
 - belongs_to :gest
 - belongs_to :tag
 
-## Active Hash
+## Sexsテーブル
 
-- sex
-- area
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| code   | string     | null: false |
+| name   | string     | null: false |
+
+### Association
+
+- has_many :gest
+
+## Areasテーブル
+
+| Column | Type       | Options     |
+| ------ | ---------- | ----------- |
+| code   | string     | null: false |
+| name   | string     | null: false |
+
+### Association
+
+- has_many :gest

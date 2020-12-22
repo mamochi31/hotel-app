@@ -17,6 +17,10 @@
   font-size: 1vw;
 }
 
+.required {
+  background-color: lightyellow;
+}
+
 .top_title {
   display: flex;
 }
@@ -24,6 +28,7 @@
 input {
   resize: none;
   height: 5vh;
+  width: 5vw;
 }
 
 .title {
@@ -50,11 +55,7 @@ input {
   margin-left: 0;
 }
 
-.sex {
-  width: 5vw;
-}
-
-.rank {
+.sex, .rank, .dep_title, .night_form {
   width: 5vw;
 }
 
@@ -66,36 +67,8 @@ input {
   width: 30vw;
 }
 
-.phone_number_form {
-  width: 20vw;
-}
-
-.arr_date_form {
-  width: 20vw;
-}
-
-.dep_date_form {
-  width: 20vw;
-}
-
-.night_form {
-  width: 5vw;
-}
-
-.people {
-  width: 5vw;
-}
-
-.room {
-  width: 5vw;
-}
-
-.room_form {
-  width: 10vw;
-}
-
-.plan_form {
-  width: 5vw;
+.phone_number_form, .arr_date_form, .dep_date_form {
+  width: 15vw;
 }
 
 .plan_name {
@@ -106,14 +79,6 @@ input {
 .price {
   border: 1px solid black;
   width: 15vw;
-}
-
-.tag_form {
-  width: 5vw;
-}
-
-.area_form {
-  width: 10vw;
 }
 
 .at_title {
