@@ -35,11 +35,11 @@
       </div>
       <div class="element">
         <div class="title">到着日</div>
-        <%= f.text_field :arr_date, class:"arr_date_form required", id:"arr_date_form"%>
-        <div class="title">泊数</div>
+        <%= f.date_field :arr_date, class:"arr_date_form required", id:"arr_date_form"%>
+        <div class="title night_form">泊数</div>
         <%= f.text_field :night , class:"night_form required", id:"night _form", maxlength:"3"%>
-        <div class="title">出発日</div>
-        <%= f.text_field :dep_date, class:"dep_date_form required", id:"dep_date_form"%>
+        <div class="title dep_title">出発日</div>
+        <%= f.date_field :dep_date, class:"dep_date_form required", id:"dep_date_form"%>
       </div>
       <div class="element">
         <div class="title">人数</div>
@@ -94,6 +94,7 @@
         <div class="at">○月○日</div>
       </div>
     </div>
-    <%= f.submit "新規登録" ,class:"registration-btn" %>
+    <%# <%= f.submit "新規登録" ,class:"registration-btn"%>
+    <input type="button" onclick="submit();" name="commit" value="新規登録" class="registration-btn" data-disable-with="新規登録">
   <% end %>
 </div>
