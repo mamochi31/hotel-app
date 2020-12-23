@@ -101,9 +101,11 @@
         </div>
       </div>
     </div>
-    <div class="foot">
-      <%= button_to "削除", gest_path(@gest.id), method: :delete %>
+    <div class="registration">
       <input type="button" onclick="submit();" name="commit" value="登録" class="registration-btn" data-disable-with="登録">
     </div>
   <% end %>
+  <div class="foot">
+    <%= button_to "削除", gest_path(@gest.id), method: :delete %>
+  </div>
 </div>

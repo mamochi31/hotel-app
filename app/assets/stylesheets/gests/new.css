@@ -53,7 +53,7 @@ input {
   margin-left: 7vw;
 }
 
-.element, .foot {
+.element, .registration {
   display: flex;
 }
 
@@ -95,22 +95,23 @@ input {
 .at {
   border: 1px solid black;
   width: 17vw;
-  margin-right: 1vw;
 }
 
 .remark_form {
   width: 60vw;
 }
 
-.foot {
-  margin: 2vh 0 0 85vw;
-}
-
 .registration-btn {
-  margin-left: 1vw;
+  margin: 0 0 0 auto;
+  margin-top: 2vh;
 }
 
 .plan_name, .price, .at {
   height: 5vh;
   background-color: lightgray;
+}
+
+.foot {
+  position: absolute;
+  top: 93vh;
 }
