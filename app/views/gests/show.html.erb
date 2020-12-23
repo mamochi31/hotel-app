@@ -1,3 +1,106 @@
 <div class="head">予約詳細</div>
 
-<%= render partial: "new_show" %>
+<div class="main">
+  <%= form_with(model: @gest, local: true, class:"form") do |f|%>
+    <div class="top_title">
+      <div class="title name_kana">ゲスト名（カナ）</div>
+      <div class="title sex">性別</div>
+      <div class="title rank">ランク</div>
+      <div class="title memo">メモ</div>
+    </div>
+    <div class="gests_date">
+      <div class="element">
+        <div class="title">ゲスト１</div>
+        <%= f.text_field :name1_kana, class:"gest_name_form name_kana required", id:"gest_name1", maxlength:"20"%>
+        <%= f.text_field :sex_id, class:"sex_form sex center", id:"sex_form", maxlength:"1"%>
+        <%= f.text_field :rank_id, class:"rank_form rank center", id:"rank_form", maxlength:"4"%>
+        <%= f.text_field :memo, class:"memo_form memo", id:"memo_form", maxlength:"40"%>
+      </div>
+      <div class="element">
+        <div class="title">ゲスト２</div>
+        <%= f.text_field :name2_kana, class:"gest_name_form name_kana", id:"gest_name2", maxlength:"20"%>
+      </div>
+      <div class="element">
+        <div class="title">ゲスト３</div>
+        <%= f.text_field :name3_kana, class:"gest_name_form name_kana", id:"gest_name3", maxlength:"20"%>
+      </div>
+      <div class="element">
+        <div class="title">会社名</div>
+        <%= f.text_field :company_kana, class:"company_form", id:"company_form", placeholder:"カタカナで入力してください", maxlength:"30"%>
+        <%= f.text_field :company_kanji, class:"company_form", id:"company_form", placeholder:"漢字で入力してください", maxlength:"30"%>
+      </div>
+      <div class="element">
+        <div class="title">電話番号</div>
+        <%= f.text_field :phone_number, class:"phone_number_form required", id:"phone_number_form", placeholder:"半角数字で入力してください", maxlength:"20"%>
+      </div>
+      <div class="element">
+        <div class="title">到着日</div>
+        <%= f.date_field :arr_date, class:"arr_date_form required", id:"arr_date_form"%>
+        <div class="title night_form">泊数</div>
+        <%= f.text_field :night , class:"night_form required", id:"night _form", maxlength:"3"%>
+        <div class="title dep_title">出発日</div>
+        <%= f.date_field :dep_date, class:"dep_date_form required", id:"dep_date_form"%>
+      </div>
+      <div class="element">
+        <div class="title">人数</div>
+        <%= f.text_field :adult, class:"adult_form people required", id:"adult_form", placeholder:"大人", maxlength:"1"%>
+        <%= f.text_field :child, class:"child_form people", id:"child_form", placeholder:"小人", maxlength:"1"%>
+        <%= f.text_field :baby, class:"baby_form people", id:"baby_form", placeholder:"幼児", maxlength:"1"%>
+      </div>
+      <div class="element">
+        <div class="title number_of_room">室数</div>
+        <%= f.text_field :number_of_room, class:"number_of_room_form room required", id:"number_of_room_form", maxlength:"2"%>
+      </div>
+      <div class="element">
+        <div class="title">部屋タイプ</div>
+        <%= f.text_field :room_type_id, class:"room_type_form room required", id:"room_type_form", maxlength:"3"%>
+      </div>
+      <div class="element">
+        <div class="title">部屋番号</div>
+        <%= f.text_field :room, class:"room_form", id:"room_form", maxlength:"4"%>
+      </div>
+      <div class="element">
+        <div class="title">プラン</div>
+        <%= f.text_field :plan_id, class:"plan_form required", id:"plan_form", maxlength:"5"%>
+        <div class="plan_name">
+          <%= @plan.name %>
+        </div>
+      </div>
+      <div class="element">
+        <div class="title price_title">料金</div>
+        <div class="price">
+          <%= "#{@plan.price}円" %>
+        </div>
+        <div class="price">
+          <%= "#{@plan.price * (@gest.adult + @gest.child)}円" %>
+        </div>
+      </div>
+      <div class="element">
+        <div class="title">リクエスト</div>
+        <% @tags.each do |tag| %>
+          <%= text_field_tag "gest_tag[code][]", tag, class: "tag_form center" %>
+        <% end %>
+        <% (5 - @tags.length).times do %>
+          <%= text_field_tag "gest_tag[code][]", nil, class: "tag_form center" %>
+        <% end %>
+      </div>
+      <div class="element">
+        <div class="title area">地域</div>
+        <%= f.text_field :area_id, class:"area_form center", id:"area_form", maxlength:"4"%>
+        <div class="title at_title">登録日</div>
+        <div class="at">
+          <%= "#{l @gest.created_at} #{@gest.user.name}" %>
+        </div>
+      </div>
+      <div class="element">
+        <div class="title">備考</div>
+        <%= f.text_field :remark, class:"remark_form", id:"remark_form", maxlength:"50"%>
+        <div class="title at_title">更新日</div>
+        <div class="at">
+          <%= "#{l @gest.updated_at} #{@gest.user.name}" %>
+        </div>
+      </div>
+    </div>
+    <input type="button" onclick="submit();" name="commit" value="登録" class="registration-btn" data-disable-with="登録">
+  <% end %>
+</div>
