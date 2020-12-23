@@ -1,5 +1,7 @@
 class GestsController < ApplicationController
   before_action :gest_params, only: [:create, :update]
+  before_action :gest_find, only: [:show, :update]
+  before_action :plan_find, only: [:show, :update]
 
   def index
   end
@@ -21,22 +23,16 @@ class GestsController < ApplicationController
   end
 
   def show
-    @gest = Gest.find(params[:id])
-    @plan = Plan.find(@gest.plan_id)
     change_char
     tags_create
   end
 
   def edit
-    # @gest = Gest.find(params[:id])
   end
 
   def update
-    @gest = Gest.find(params[:id])
-    @plan = Plan.find(@gest.plan_id)
     change_num
     if @gest.update(gest_params_edit)
-      binding.pry
       gest_tags_update
       redirect_to gest_path(@gest.id)
     else
@@ -46,35 +42,48 @@ class GestsController < ApplicationController
 
   private
 
+  def gest_find
+    @gest = Gest.find(params[:id])
+  end
+
+  def plan_find
+    @plan = Plan.find(@gest.plan_id)
+  end
+
   def gest_params
     gest_params = params.require(:gest)
   end
-
-  def gest_params_new
-    params.require(:gest).permit(
+  
+  def gest_params_permit
+    gest_params_permit = gest_params.permit(
       :name1_kana, :name2_kana, :name3_kana, :memo, :company_kana, :company_kanji,
       :phone_number, :remark, :arr_date, :dep_date, :night, :adult, :child, :baby, :number_of_room, :sex_id, :rank_id, :room_type_id, :plan_id, :area_id
-    ).merge(user_id: current_user.id)
+    )
+  end
+
+  def gest_params_new
+    gest_params_permit.merge(user_id: current_user.id)
+  end
+
+  def gest_params_edit
+    gest_params_permit.merge(update_user_id: current_user.id)
+  end
+
+  def gest_tag_params_code
+    gest_tag_params_code = params.require(:gest_tag)[:code]
   end
 
   def gest_tags_save
-    params.require(:gest_tag)[:code].each do |code|
+    gest_tag_params_code.each do |code|
       tag = Tag.where(code: code).ids[0]
       GestTag.create(gest_id: @gest.id, tag_id: tag)
     end
   end
 
-  def gest_params_edit
-    params.require(:gest).permit(
-      :name1_kana, :name2_kana, :name3_kana, :memo, :company_kana, :company_kanji,
-      :phone_number, :remark, :arr_date, :dep_date, :night, :adult, :child, :baby, :number_of_room, :sex_id, :rank_id, :room_type_id, :plan_id, :area_id
-    ).merge(update_user_id: current_user.id)
-  end
-
   def gest_tags_update
     @gest_tags = @gest.gest_tags
     @tags = []
-    params.require(:gest_tag)[:code].each do |code|
+    gest_tag_params_code.each do |code|
       @tags << Tag.where(code: code).ids[0]
     end
     count = 0
@@ -90,8 +99,13 @@ class GestsController < ApplicationController
     end
   end
 
-  def change_num
+  def change_zero(column)
+    if gest_params[column] == ""
+      gest_params[column] = 0
+    end
+  end
 
+  def change_num
     sex = Sex.where(code: gest_params[:sex_id])
     gest_params[:sex_id] = sex.ids[0]
 
@@ -107,13 +121,8 @@ class GestsController < ApplicationController
     area = Area.where(code: gest_params[:area_id])
     gest_params[:area_id] = area.ids[0]
 
-    if gest_params[:child] == ""
-      gest_params[:child] = 0
-    end
-
-    if gest_params[:baby] == ""
-      gest_params[:baby] = 0
-    end
+    change_zero(:child)
+    change_zero(:baby)
   end
 
   def change_char
