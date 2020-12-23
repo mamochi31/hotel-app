@@ -49,6 +49,7 @@ ActiveRecord::Schema.define(version: 2020_12_21_074435) do
     t.integer "child"
     t.integer "baby"
     t.integer "number_of_room", null: false
+    t.integer "update_user_id"
     t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false

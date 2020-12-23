@@ -1,4 +1,4 @@
-<div class="head">新規予約登録</div>
+<div class="head">予約詳細</div>
 
 <div class="main">
   <%= form_with(model: @gest, local: true, class:"form") do |f|%>
@@ -62,16 +62,25 @@
       <div class="element">
         <div class="title">プラン</div>
         <%= f.text_field :plan_id, class:"plan_form required", id:"plan_form", maxlength:"5"%>
-        <div class="plan_name"></div>
+        <div class="plan_name">
+          <%= @plan.name %>
+        </div>
       </div>
       <div class="element">
         <div class="title price_title">料金</div>
-        <div class="price"></div>
-        <div class="price"></div>
+        <div class="price">
+          <%= "#{@plan.price}円" %>
+        </div>
+        <div class="price">
+          <%= "#{@plan.price * (@gest.adult + @gest.child)}円" %>
+        </div>
       </div>
       <div class="element">
         <div class="title">リクエスト</div>
-        <% 5.times do %>
+        <% @tags.each do |tag| %>
+          <%= text_field_tag "gest_tag[code][]", tag, class: "tag_form center" %>
+        <% end %>
+        <% (5 - @tags.length).times do %>
           <%= text_field_tag "gest_tag[code][]", nil, class: "tag_form center" %>
         <% end %>
       </div>
@@ -79,13 +88,17 @@
         <div class="title area">地域</div>
         <%= f.text_field :area_id, class:"area_form center", id:"area_form", maxlength:"4"%>
         <div class="title at_title">登録日</div>
-        <div class="at"></div>
+        <div class="at">
+          <%= "#{l @gest.created_at} #{@gest.user.name}" %>
+        </div>
       </div>
       <div class="element">
         <div class="title">備考</div>
         <%= f.text_field :remark, class:"remark_form", id:"remark_form", maxlength:"50"%>
         <div class="title at_title">更新日</div>
-        <div class="at"></div>
+        <div class="at">
+          <%= "#{l @gest.updated_at} #{@gest.user.name}" %>
+        </div>
       </div>
     </div>
     <input type="button" onclick="submit();" name="commit" value="登録" class="registration-btn" data-disable-with="登録">
