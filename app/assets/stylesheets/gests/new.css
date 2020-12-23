@@ -2,6 +2,7 @@
   font-size: 1vh;
   font-size: 1vw;
   line-height: 5vh;
+  box-sizing: border-box;
 }
 
 .head {
@@ -52,7 +53,7 @@ input {
   margin-left: 7vw;
 }
 
-.element {
+.element, .foot {
   display: flex;
 }
 
@@ -101,9 +102,12 @@ input {
   width: 60vw;
 }
 
+.foot {
+  margin: 2vh 0 0 85vw;
+}
+
 .registration-btn {
-  margin: 2vh 2vw 0 90vw;
-  width: 7vw;
+  margin-left: 1vw;
 }
 
 .plan_name, .price, .at {
