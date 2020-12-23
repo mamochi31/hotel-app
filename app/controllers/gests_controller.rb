@@ -1,6 +1,6 @@
 class GestsController < ApplicationController
   before_action :gest_params, only: [:create, :update]
-  before_action :gest_find, only: [:show, :update]
+  before_action :gest_find, only: [:show, :update, :destroy]
   before_action :plan_find, only: [:show, :update]
 
   def index
@@ -38,6 +38,11 @@ class GestsController < ApplicationController
     else
       render :show
     end
+  end
+
+  def destroy
+    @gest.destroy
+    redirect_to root_path
   end
 
   private
