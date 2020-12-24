@@ -1,0 +1,35 @@
+.tag_form {
+  display: flex;
+  margin-bottom: 5vh;
+}
+
+.tag_code_form {
+  margin-right: 5vw;
+  width: 7vw;
+  text-align: center;
+}
+
+.tag_name_form {
+  width: 40vw;
+}
+
+.create_btn {
+  margin: 0 0 0 auto;
+}
+
+.tag_all {
+  height: 75vh;
+  border: 1px solid black;
+  overflow: scroll;
+}
+
+.tag_column {
+  display: flex;
+}
+
+.code_column {
+  width: 6vw;
+  border: 1px solid black;
+  height: 3vh;
+  line-height: 3vh;
+}

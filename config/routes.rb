@@ -8,4 +8,5 @@ Rails.application.routes.draw do
   resources :ranks
   resources :room_types
   resources :plans
+  resources :tags
 end
