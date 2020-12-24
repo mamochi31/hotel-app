@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   resources :gests
   resources :sexes
   resources :ranks
+  resources :room_types
 end

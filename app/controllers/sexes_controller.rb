@@ -4,11 +4,7 @@ class SexesController < ApplicationController
     @sex = Sex.new
   end
 
-  def new
-  end
-
   def create
-    # binding.pry
     @sex = Sex.new(sex_params)
     if @sex.valid?
       @sex.save

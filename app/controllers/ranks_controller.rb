@@ -4,11 +4,7 @@ class RanksController < ApplicationController
     @rank = Rank.new
   end
 
-  def new
-  end
-
   def create
-    # binding.pry
     @rank = Rank.new(rank_params)
     if @rank.valid?
       @rank.save
