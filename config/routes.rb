@@ -9,4 +9,5 @@ Rails.application.routes.draw do
   resources :room_types
   resources :plans
   resources :tags
+  resources :areas
 end
