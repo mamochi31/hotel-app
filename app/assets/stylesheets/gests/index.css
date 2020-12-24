@@ -38,7 +38,12 @@ header {
   height: calc(100vh - 17vh);
   background-color: gray;
 }
+
 footer {
   background-color: lightgray;
   height: 3vh;
+}
+
+.text_left {
+  text-align: left;
 }
