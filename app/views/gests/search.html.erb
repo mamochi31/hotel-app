@@ -1,0 +1,44 @@
+<div class="head">予約検索</div>
+<div class="main">
+  <%= form_with(url: gests_search_path, local: true, method: :get, class: "search_form") do |f| %>
+    <div class="search_form_head">
+      <div class="title">名前</div>
+      <%= f.text_field :name, placeholder: "カタカナで入力", class: "name_search" %>
+    </div>
+    <div class="search_form_foot">
+      <%= f.submit "検索", class: "search_btn" %>
+    </div>
+  <% end %>
+  <div class="search_results">
+    <div class="results_column">
+      <div class="column id_column">ID</div>
+      <div class="column name_column">名前</div>
+      <div class="column date_column">到着日</div>
+      <div class="column night_column">泊数</div>
+      <div class="column date_column">出発日</div>
+      <div class="column people_column">人数</div>
+      <div class="column number_room_column">室数</div>
+      <div class="column at_column">登録日</div>
+      <div class="column at_column">更新日</div>
+    </div>
+    <div class="results">
+      <% unless @gests == nil %>
+        <% @gests.each do |gest| %>
+        <div class="result">
+          <div class="id_column"><%= gest.id %></div>
+          <div class="name_column"><%= gest.name1_kana %></div>
+          <div class="date_column"><%= gest.arr_date %></div>
+          <div class="night_column"><%= gest.night %></div>
+          <div class="date_column"><%= gest.dep_date %></div>
+          <div class="people_column"><%= gest.adult + gest.child + gest.baby %></div>
+          <div class="number_room_column"><%= gest.number_of_room %></div>
+          <div class="at_column"><%= l gest.created_at %></div>
+          <div class="at_column"><%= l gest.updated_at %></div>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="foot">
+</div>
