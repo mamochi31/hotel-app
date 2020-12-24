@@ -1,0 +1,33 @@
+<div class="head">性別コード</div>
+<div class="main">
+  <%= form_with(model: @sex, local: true, class:"sex_new_form") do |f| %>
+    <div class="sex_form">
+      <div class="title">コード</div>
+      <%= f.text_field :code, class: "sex_code_form", maxlength:"1" %>
+      <div class="title">名前</div>
+      <%= f.text_field :name, class: "sex_name_form" %>
+      <%= f.submit "作成", class: "create_btn" %>
+    </div>
+  <% end %>
+  <div class="sex_all">
+    <div class="sex_column">
+      <div class="column id_column">ID</div>
+      <div class="column code_column">コード</div>
+      <div class="column name_column">名前</div>
+      <div class="column at_column">登録日</div>
+      <div class="column at_column">更新日</div>
+    </div>
+    <% unless @sexes == nil %>
+      <% @sexes.each do |sex| %>
+      <div class="result">
+        <div class="id_column"><%= sex.id %></div>
+        <div class="code_column"><%= sex.code %></div>
+        <div class="name_column"><%= sex.name %></div>
+        <div class="at_column"><%= l sex.created_at %></div>
+        <div class="at_column"><%= l sex.updated_at %></div>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+<div class="foot">
+</div>
