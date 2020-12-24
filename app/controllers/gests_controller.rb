@@ -45,6 +45,14 @@ class GestsController < ApplicationController
     redirect_to root_path
   end
 
+  def search_index
+    render template: "gests/search"
+  end
+
+  def search
+    @gests = Gest.name_search(params[:name])
+  end
+
   private
 
   def gest_find
