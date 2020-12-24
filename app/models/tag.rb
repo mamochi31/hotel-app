@@ -7,4 +7,8 @@ class Tag < ApplicationRecord
 
   # has_many :room_tags
   # has_many :rooms, through: :room_tags
+
+  with_options presence: true, uniqueness: true do
+    validates :code, :name
+  end
 end

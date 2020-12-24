@@ -1,0 +1,37 @@
+<div class="head">部屋タイプ</div>
+<div class="main">
+  <%= form_with(model: @plan, local: true, class:"plan_new_form") do |f| %>
+    <div class="plan_create_form">
+      <div class="title">コード</div>
+      <%= f.text_field :code, class: "plan_code_form", maxlength:"5" %>
+      <div class="title">名前</div>
+      <%= f.text_field :name, class: "plan_name_form" %>
+      <div class="title">単価</div>
+      <%= f.text_field :price, class: "plan_price_form" %>
+      <%= f.submit "作成", class: "create_btn" %>
+    </div>
+  <% end %>
+  <div class="plan_all">
+    <div class="plan_column">
+      <div class="column id_column">ID</div>
+      <div class="column code_column">コード</div>
+      <div class="column plan_name_column">名前</div>
+      <div class="column price_column">単価</div>
+      <div class="column at_column">登録日</div>
+      <div class="column at_column">更新日</div>
+    </div>
+    <% unless @plans == nil %>
+      <% @plans.each do |plan| %>
+      <div class="result">
+        <div class="id_column"><%= plan.id %></div>
+        <div class="code_column"><%= plan.code %></div>
+        <div class="plan_name_column text_left"><%= plan.name %></div>
+        <div class="price_column"><%= "#{plan.price}円" %></div>
+        <div class="at_column"><%= l plan.created_at %></div>
+        <div class="at_column"><%= l plan.updated_at %></div>
+        </div>
+      <% end %>
+    <% end %>
+</div>
+<div class="foot">
+</div>

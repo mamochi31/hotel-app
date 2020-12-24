@@ -46,7 +46,7 @@ class GestsController < ApplicationController
   end
 
   def search_index
-    render template: "gests/search"
+    render template: 'gests/search'
   end
 
   def search
@@ -66,11 +66,12 @@ class GestsController < ApplicationController
   def gest_params
     gest_params = params.require(:gest)
   end
-  
+
   def gest_params_permit
     gest_params_permit = gest_params.permit(
       :name1_kana, :name2_kana, :name3_kana, :memo, :company_kana, :company_kanji,
-      :phone_number, :remark, :arr_date, :dep_date, :night, :adult, :child, :baby, :number_of_room, :sex_id, :rank_id, :room_type_id, :plan_id, :area_id
+      :phone_number, :remark, :arr_date, :dep_date, :night, :adult, :child, :baby,
+      :number_of_room, :sex_id, :rank_id, :room_type_id, :plan_id, :area_id
     )
   end
 
@@ -101,9 +102,9 @@ class GestsController < ApplicationController
     end
     count = 0
     @tags.each do |tag|
-      if @gest_tags[count] != nil && tag != nil
+      if !@gest_tags[count].nil? && !tag.nil?
         @gest_tags[count].update(gest_id: @gest.id, tag_id: tag)
-      elsif @gest_tags[count] != nil && tag == nil
+      elsif !@gest_tags[count].nil? && tag.nil?
         @gest_tags[count].destroy
       else
         @gest_tags.create(gest_id: @gest.id, tag_id: tag)
@@ -113,9 +114,7 @@ class GestsController < ApplicationController
   end
 
   def change_zero(column)
-    if gest_params[column] == ""
-      gest_params[column] = 0
-    end
+    gest_params[column] = 0 if gest_params[column] == ''
   end
 
   def change_num
@@ -139,12 +138,12 @@ class GestsController < ApplicationController
   end
 
   def change_char
-    unless @gest.sex_id == nil
+    unless @gest.sex_id.nil?
       sex = Sex.where(id: @gest.sex_id)
       @gest.sex_id = sex[0].code
     end
 
-    unless @gest.rank_id == nil
+    unless @gest.rank_id.nil?
       rank = Rank.where(id: @gest.rank_id)
       @gest.rank_id = rank[0].code
     end
@@ -155,7 +154,7 @@ class GestsController < ApplicationController
     plan = Plan.where(id: @gest.plan_id)
     @gest.plan_id = plan[0].code
 
-    unless @gest.area_id == nil
+    unless @gest.area_id.nil?
       area = Area.where(id: @gest.area_id)
       @gest.area_id = area[0].code
     end
@@ -163,7 +162,7 @@ class GestsController < ApplicationController
 
   def tags_create
     gest_tags = @gest.tags.ids
-    @tags = [] 
+    @tags = []
     gest_tags.each do |gest_tag|
       tag = Tag.where(id: gest_tag)
       @tags << tag[0].code

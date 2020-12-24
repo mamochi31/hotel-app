@@ -27,9 +27,6 @@ class Gest < ApplicationRecord
   end
 
   def self.name_search(search)
-    if search != ""
-      Gest.where('name1_kana LIKE(?)', "%#{search}%")
-    end
+    Gest.where('name1_kana LIKE(?)', "%#{search}%") if search != ''
   end
-
 end

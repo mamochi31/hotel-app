@@ -1,0 +1,56 @@
+.plan_create_form {
+  display: flex;
+  margin-bottom: 5vh;
+}
+
+.plan_code_form {
+  margin-right: 5vw;
+  width: 7vw;
+  text-align: center;
+}
+
+.plan_name_form {
+  width: 40vw;
+  margin-right: 5vw;
+}
+
+.plan_price_form {
+  width: 7vw;
+  text-align: center;
+}
+
+.create_btn {
+  margin: 0 0 0 auto;
+}
+
+.plan_all {
+  height: 75vh;
+  border: 1px solid black;
+  overflow: scroll;
+}
+
+.plan_column {
+  display: flex;
+}
+
+.plan_name_column {
+  width: 40vw;
+  border: 1px solid black;
+  height: 3vh;
+  line-height: 3vh;
+  padding: 0 1vw;
+}
+
+.code_column {
+  width: 7vw;
+  border: 1px solid black;
+  height: 3vh;
+  line-height: 3vh;
+}
+
+.price_column {
+  width: 8vw;
+  border: 1px solid black;
+  height: 3vh;
+  line-height: 3vh;
+}
