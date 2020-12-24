@@ -3,15 +3,11 @@ class PlansController < ApplicationController
     @plans = Plan.all
     @plan = Plan.new
   end
-  
+
   def create
     @plan = Plan.new(plan_params)
-    if @plan.valid?
-      @plan.save
-      redirect_to plans_path
-    else
-      redirect_to plans_path
-    end
+    @plan.save if @plan.valid?
+    redirect_to plans_path
   end
 
   private

@@ -6,12 +6,8 @@ class SexesController < ApplicationController
 
   def create
     @sex = Sex.new(sex_params)
-    if @sex.valid?
-      @sex.save
-      redirect_to sexes_path
-    else
-      redirect_to sexes_path
-    end
+    @sex.save if @sex.valid?
+    redirect_to sexes_path
   end
 
   private

@@ -6,12 +6,8 @@ class TagsController < ApplicationController
 
   def create
     @tag = Tag.new(tag_params)
-    if @tag.valid?
-      @tag.save
-      redirect_to tags_path
-    else
-      redirect_to tags_path
-    end
+    @tag.save if @tag.valid?
+    redirect_to tags_path
   end
 
   private

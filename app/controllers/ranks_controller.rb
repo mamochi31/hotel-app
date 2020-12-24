@@ -6,12 +6,8 @@ class RanksController < ApplicationController
 
   def create
     @rank = Rank.new(rank_params)
-    if @rank.valid?
-      @rank.save
-      redirect_to ranks_path
-    else
-      redirect_to ranks_path
-    end
+    @rank.save if @rank.valid?
+    redirect_to ranks_path
   end
 
   private
