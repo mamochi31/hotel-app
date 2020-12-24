@@ -1,7 +1,7 @@
 <div class="head">地域</div>
 <div class="main">
   <%= form_with(model: @area, local: true, class:"area_new_form") do |f| %>
-    <div class="area_form">
+    <div class="area_create_form">
       <div class="title">コード</div>
       <%= f.text_field :code, class: "area_code_form", maxlength:"4" %>
       <div class="title">名前</div>
