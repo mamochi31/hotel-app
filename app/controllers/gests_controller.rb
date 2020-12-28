@@ -53,6 +53,18 @@ class GestsController < ApplicationController
     @gests = Gest.name_search(params[:name])
   end
 
+  def code_search_sex
+    return nil if params[:sexKeyword] == ""
+    sex = Sex.where( ['code LIKE ?', "%#{params[:sexKeyword]}%"] )
+    render json:{ sexKeyword: sex }
+  end
+
+  def code_search_rank
+    return nil if params[:rankKeyword] == ""
+    rank = Rank.where( ['code LIKE ?', "%#{params[:rankKeyword]}%"] )
+    render json:{ rankKeyword: rank }
+  end
+
   private
 
   def gest_find

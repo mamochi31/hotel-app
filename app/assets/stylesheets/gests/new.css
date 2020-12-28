@@ -116,3 +116,15 @@ input {
   position: absolute;
   top: 93vh;
 }
+
+.sex_fome_and_search {
+  position: relative;
+}
+
+.code_search_result {
+  position: absolute;
+  background-color: lightgray;
+  color: black;
+  width: 10vw;
+  text-align: center;
+}

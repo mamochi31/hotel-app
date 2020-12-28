@@ -3,6 +3,8 @@ Rails.application.routes.draw do
   root to:"gests#index"
   get 'gests/search/index', to: 'gests#search_index'
   get 'gests/search', to: 'gests#search'
+  get 'gests/code/search/sex', to: 'gests#code_search_sex'
+  get 'gests/code/search/rank', to: 'gests#code_search_rank'
   resources :gests
   resources :sexes
   resources :ranks
