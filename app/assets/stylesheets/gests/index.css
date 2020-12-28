@@ -2,14 +2,15 @@
   box-sizing: border-box;
 }
 
-header {
-  background-color: rgb(200, 200, 200);
+body {
+  background-color: white;
 }
 
 .menu_bar {
   display: flex;
   height: 10vh;
   align-items: center;
+  background-color: rgb(200, 200, 200);
 }
 
 .btn {
@@ -32,6 +33,7 @@ header {
 .btn:active {
   border-right: 1px;
   box-shadow: 0 0 2px rgba(0, 0, 0, 0.30);
+
 }
 
 .main {
@@ -39,11 +41,15 @@ header {
   background-color: gray;
 }
 
-footer {
+.errors {
   background-color: lightgray;
   height: 3vh;
 }
 
 .text_left {
   text-align: left;
+}
+
+.create_btn {
+  text-align: center;
 }

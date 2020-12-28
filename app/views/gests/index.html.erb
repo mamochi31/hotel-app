@@ -4,32 +4,33 @@
       <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: 'btn'%>
     </div>
     <div class="menu_new">
-      <%= link_to "予約登録", new_gest_path, class: 'btn'%>
+      <%= link_to "予約登録", new_gest_path, class: 'btn', id: 'menu-new' %>
     </div>
     <div class="menu_search">
-      <%= link_to "予約検索", gests_search_index_path, class: 'btn'%>
+      <%= link_to "予約検索", gests_search_index_path, class: 'btn', id: 'menu-search' %>
     </div>
     <div class="menu_sex_create">
-      <%= link_to "性別作成", sexes_path, class: 'btn'%>
+      <%= link_to "性別作成", sexes_path, class: 'btn', id: 'menu-sex-create' %>
     </div>
     <div class="menu_rank_create">
-      <%= link_to "ランク作成", ranks_path, class: 'btn'%>
+      <%= link_to "ランク作成", ranks_path, class: 'btn', id: 'menu-rank-create' %>
     </div>
     <div class="menu_room_type_create">
-      <%= link_to "部屋タイプ作成", room_types_path, class: 'btn'%>
+      <%= link_to "部屋タイプ作成", room_types_path, class: 'btn', id: 'menu-room-type-create' %>
     </div>
     <div class="menu_plan_create">
-      <%= link_to "プラン作成", plans_path, class: 'btn'%>
+      <%= link_to "プラン作成", plans_path, class: 'btn', id: 'menu-plan-create' %>
     </div>
     <div class="menu_tag_create">
-      <%= link_to "タグ作成", tags_path, class: 'btn'%>
+      <%= link_to "タグ作成", tags_path, class: 'btn', id: 'menu-tag-create' %>
     </div>
     <div class="menu_area_create">
-      <%= link_to "地域作成", areas_path, class: 'btn'%>
+      <%= link_to "地域作成", areas_path, class: 'btn', id: 'menu-area-create' %>
     </div>
   </div>
 </header>
-<div class="main">
+<div class="main" id="main">
+  <script src="https://riversun.github.io/jsframe/jsframe.js"></script>
 </div>
-<footer>
-</footer>
+<div class="errors">
+</div>
