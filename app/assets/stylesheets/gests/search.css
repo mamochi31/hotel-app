@@ -34,29 +34,29 @@
 .id_column {
   width: 4vw;
   border: 1px solid black;
-  height: 3vh;
-  line-height: 3vh;
+  height: 5vh;
+  line-height: 5vh;
 }
 
 .name_column {
-  width: 17vw;
+  width: 16vw;
   border: 1px solid black;
-  height: 3vh;
-  line-height: 3vh;
+  height: 5vh;
+  line-height: 5vh;
 }
 
 .night_column, .number_room_column, .people_column {
   width: 5vw;
   border: 1px solid black;
-  height: 3vh;
-  line-height: 3vh;
+  height: 5vh;
+  line-height: 5vh;
 }
 
 .date_column, .at_column {
   width: 15vw;
   border: 1px solid black;
-  height: 3vh;
-  line-height: 3vh;
+  height: 5vh;
+  line-height: 5vh;
 }
 
 .result {
