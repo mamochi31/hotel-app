@@ -65,6 +65,12 @@ class GestsController < ApplicationController
     render json:{ rankKeyword: rank }
   end
 
+  def code_search_room_type
+    return nil if params[:roomTypeKeyword] == ""
+    room_type = RoomType.where( ['code LIKE ?', "%#{params[:roomTypeKeyword]}%"] )
+    render json:{ roomTypeKeyword: room_type }
+  end
+
   private
 
   def gest_find

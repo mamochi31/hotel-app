@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'gests/search', to: 'gests#search'
   get 'gests/code/search/sex', to: 'gests#code_search_sex'
   get 'gests/code/search/rank', to: 'gests#code_search_rank'
+  get 'gests/code/search/room_type', to: 'gests#code_search_room_type'
   resources :gests
   resources :sexes
   resources :ranks

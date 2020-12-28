@@ -25,7 +25,7 @@ function sexSearch() {
           // 表示させるための要素を作成
           const sexChildElement = document.createElement("div");
           // 作成した要素に属性を追加
-          sexChildElement.setAttribute("class", "sex_child");
+          sexChildElement.setAttribute("class", "code_child");
           sexChildElement.setAttribute("id", sex.name);
           // 作成した要素に文字列を挿入
           sexChildElement.innerHTML = sex.code + "：" + sex.name;
@@ -63,8 +63,10 @@ function rankSearch() {
         const ranks = rankXHR.response.rankKeyword;
         ranks.forEach((rank) => {
           const rankChildElement = document.createElement("div");
-          rankChildElement.setAttribute("class", "rank_child");
+          rankChildElement.setAttribute("class", "code_child");
           rankChildElement.setAttribute("id", rank.name);
+          const rankCodeChildElement = document.createElement("span")
+          const rankNameChildElement = document
           rankChildElement.innerHTML = rank.code + "：" + rank.name;
           rankSearchResult.appendChild(rankChildElement);
 
@@ -81,9 +83,45 @@ function rankSearch() {
   });
 };
 
+// 部屋タイプフォームに入力があった際に予測変換を表示する処理
+function roomTypeSearch() {
+  const inputRoomTypeForm = document.getElementById("room_type_form");
+  inputRoomTypeForm.addEventListener("keyup", () => {
+    const roomTypeKeyword = document.getElementById("room_type_form").value;
+    
+    const roomTypeXHR = new XMLHttpRequest();
+    roomTypeXHR.open("GET", `code/search/room_type/?roomTypeKeyword=${roomTypeKeyword}`, true);
+    roomTypeXHR.responseType = "json";
+    roomTypeXHR.send();
+    roomTypeXHR.onload = () => {
+      const roomTypeSearchResult = document.getElementById("room_type_search_result");
+      roomTypeSearchResult.innerHTML = "";
+      if (roomTypeXHR.response) {
+        const roomTypes = roomTypeXHR.response.roomTypeKeyword;
+        roomTypes.forEach((roomType) => {
+          const roomTypeChildElement = document.createElement("div");
+          roomTypeChildElement.setAttribute("class", "code_child");
+          roomTypeChildElement.setAttribute("id", roomType.name);
+          roomTypeChildElement.innerHTML = roomType.code + "：" + roomType.name;
+          roomTypeSearchResult.appendChild(roomTypeChildElement);
+
+          const clickElement = document.getElementById(roomType.name);
+          clickElement.addEventListener("click", () => {
+            document.getElementById("room_type_form").value = roomType.code;
+          });
+        });
+      };
+      document.addEventListener("click", () => {
+        roomTypeSearchResult.innerHTML = "";
+      });
+    };
+  });
+};
+
 if (location.pathname.match("gests/new")) {
   document.addEventListener("DOMContentLoaded", () => {
     sexSearch();
     rankSearch();
+    roomTypeSearch();
   });
 };
