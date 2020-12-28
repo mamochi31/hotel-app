@@ -163,5 +163,9 @@ function multiWindowOpen() {
   });
 }
 
-// ブラウザロードの際にmultiWindowOpenを実行
-window.addEventListener("load", multiWindowOpen);
+// rootブラウザロードの際にmultiWindowOpenを実行
+if (location.pathname == "/" || location.pathname == "/gests"){
+  document.addEventListener("DOMContentLoaded", () => {
+    multiWindowOpen();
+  });
+};
