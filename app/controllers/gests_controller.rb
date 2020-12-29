@@ -25,6 +25,7 @@ class GestsController < ApplicationController
   def show
     change_char
     tags_create
+    @num = 0
   end
 
   def edit

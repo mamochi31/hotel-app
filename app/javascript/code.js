@@ -158,7 +158,7 @@ function areaSearch() {
 // リクエストフォームに入力があった際に予測変換を表示する処理
 function tagSearch(i) {
   const num = i
-  const tagForm = "gest_tag" + String(num) + "_code_"
+  const tagForm = "gest_tag" + String(num) + "_code"
   const inputTagForm = document.getElementById(tagForm);
   inputTagForm.addEventListener("keyup", () => {
     const tagKeyword = document.getElementById(tagForm).value;
@@ -232,7 +232,8 @@ function planSearch() {
   });
 };
 
-if (location.pathname.match("gests/new")) {
+const regexShowURL = /gests(?=\/\d)/;
+if (location.pathname.match("gests/new") || location.pathname.match(regexShowURL)) {
   document.addEventListener("DOMContentLoaded", () => {
     sexSearch();
     rankSearch();

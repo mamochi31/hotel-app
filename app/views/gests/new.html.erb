@@ -15,13 +15,11 @@
         <%= f.text_field :name1_kana, class:"gest_name_form name_kana required", id:"gest_name1", maxlength:"20"%>
         <div class="sex_fome_and_search">
           <%= f.text_field :sex_id, class:"sex_form sex center", id:"sex_form", maxlength:"1"%>
-          <div class="code_search_result" id="sex_search_result">
-          </div>
+          <div class="code_search_result" id="sex_search_result"></div>
         </div>
         <div class="rank_fome_and_search">
           <%= f.text_field :rank_id, class:"rank_form rank center", id:"rank_form", maxlength:"4"%>
-          <div class="code_search_result" id="rank_search_result">
-          </div>
+          <div class="code_search_result" id="rank_search_result"></div>
         </div>
         <%= f.text_field :memo, class:"memo_form memo", id:"memo_form", maxlength:"40"%>
       </div>
@@ -86,7 +84,7 @@
         <div class="title">リクエスト</div>
         <% 5.times do |i| %>
           <div class="tag_form">
-            <%= text_field_tag "gest_tag#{i}[code][]", nil, class: "tag_form center" %>
+            <%= text_field_tag "gest_tag[code][]", nil, class: "tag_form center", id: "gest_tag#{i}_code" %>
             <%= content_tag(:div, "", class:'code_search_result tag_search_result tag' + i.to_s, id:'tag_search_result' + i.to_s) %>
           </div>
         <% end %>
