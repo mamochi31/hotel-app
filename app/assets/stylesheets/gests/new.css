@@ -150,3 +150,9 @@ input {
   max-height: 17vh;
   overflow: auto;
 }
+
+.plan_search_result {
+  left: 13vw;
+  min-width: 25vw;
+  max-width: 50vw;
+}

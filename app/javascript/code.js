@@ -195,14 +195,50 @@ function tagSearch(i) {
   });
 };
 
+// プランフォームに入力があった際に予測変換を表示する処理
+function planSearch() {
+  const inputPlanForm = document.getElementById("plan_form");
+  inputPlanForm.addEventListener("keyup", () => {
+    const planKeyword = document.getElementById("plan_form").value;
+    
+    const planXHR = new XMLHttpRequest();
+    planXHR.open("GET", `code/search/plan/?planKeyword=${planKeyword}`, true);
+    planXHR.responseType = "json";
+    planXHR.send();
+    planXHR.onload = () => {
+      const planSearchResult = document.getElementById("plan_search_result");
+      planSearchResult.innerHTML = "";
+      if (planXHR.response) {
+        const plans = planXHR.response.planKeyword;
+        plans.forEach((plan) => {
+          const planChildElement = document.createElement("div");
+          planChildElement.setAttribute("class", "code_child");
+          planChildElement.setAttribute("id", plan.name);
+          const planCodeChildElement = document.createElement("span")
+          const planNameChildElement = document
+          planChildElement.innerHTML = plan.code + "：" + plan.name;
+          planSearchResult.appendChild(planChildElement);
+
+          const clickElement = document.getElementById(plan.name);
+          clickElement.addEventListener("click", () => {
+            document.getElementById("plan_form").value = plan.code;
+          });
+        });
+      };
+      document.addEventListener("click", () => {
+        planSearchResult.innerHTML = "";
+      });
+    };
+  });
+};
+
 if (location.pathname.match("gests/new")) {
   document.addEventListener("DOMContentLoaded", () => {
     sexSearch();
     rankSearch();
     roomTypeSearch();
     areaSearch();
-    for (let i = 0; i <= 4; i++ ) {
-      tagSearch(i);
-    }
+    for (let i = 0; i <= 4; i++ ) { tagSearch(i); };
+    planSearch();
   });
 };

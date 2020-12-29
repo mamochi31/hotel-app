@@ -83,6 +83,12 @@ class GestsController < ApplicationController
     render json:{ tagKeyword: tag }
   end
 
+  def code_search_plan
+    return nil if params[:planKeyword] == ""
+    plan = Plan.where( ['code LIKE ?', "%#{params[:planKeyword]}%"] )
+    render json:{ planKeyword: plan }
+  end
+
   private
 
   def gest_find
