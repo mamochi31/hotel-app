@@ -122,7 +122,7 @@ input {
 }
 
 .code_child {
-  background-color: lightgray;
+  background-color: lightcyan;
   border: 1px solid black;
   height: 5vh;
   min-width: 10vw;
@@ -133,22 +133,16 @@ input {
   color: black;
   text-align: center;
   min-width: 12vw;
+  max-height: 17vh;
+  overflow: auto;
 }
 
 .room_type_code_search_result {
-  min-width: 15vw;
+  min-width: 20vw;
 }
 
 .area_search_result {
   left: 13vw;
-  max-height: 17vh;
-  overflow: auto;
-  
-}
-
-.tag_search_result {
-  max-height: 17vh;
-  overflow: auto;
 }
 
 .plan_search_result {

@@ -18,6 +18,7 @@ class GestsController < ApplicationController
       gest_tags_save
       redirect_to gest_path(@gest.id)
     else
+      change_char
       render :new
     end
   end
@@ -56,37 +57,61 @@ class GestsController < ApplicationController
 
   def code_search_sex
     return nil if params[:sexKeyword] == ""
-    sex = Sex.where( ['code LIKE ?', "%#{params[:sexKeyword]}%"] )
+    if params[:sexKeyword] == "@"
+      sex = Sex.all
+    else
+      sex = Sex.where( ['code LIKE ?', "%#{params[:sexKeyword]}%"] )
+    end
     render json:{ sexKeyword: sex }
   end
 
   def code_search_rank
     return nil if params[:rankKeyword] == ""
-    rank = Rank.where( ['code LIKE ?', "%#{params[:rankKeyword]}%"] )
+    if params[:rankKeyword] == "@"
+      rank = Rank.all
+    else
+      rank = Rank.where( ['code LIKE ?', "%#{params[:rankKeyword]}%"] )
+    end
     render json:{ rankKeyword: rank }
   end
 
   def code_search_room_type
     return nil if params[:roomTypeKeyword] == ""
-    room_type = RoomType.where( ['code LIKE ?', "%#{params[:roomTypeKeyword]}%"] )
+    if params[:roomTypeKeyword] == "@"
+      room_type = RoomType.all
+    else
+      room_type = RoomType.where( ['code LIKE ?', "%#{params[:roomTypeKeyword]}%"] )
+    end
     render json:{ roomTypeKeyword: room_type }
   end
 
   def code_search_area
     return nil if params[:areaKeyword] == ""
-    area = Area.where( ['code LIKE ?', "%#{params[:areaKeyword]}%"] )
+    if params[:areaKeyword] == "@"
+      area = Area.all
+    else
+      area = Area.where( ['code LIKE ?', "%#{params[:areaKeyword]}%"] )
+    end
     render json:{ areaKeyword: area }
   end
 
   def code_search_tag
     return nil if params[:tagKeyword] == ""
-    tag = Tag.where( ['code LIKE ?', "%#{params[:tagKeyword]}%"] )
+    if params[:tagKeyword] == "@"
+      tag = Tag.all
+    else
+      tag = Tag.where( ['code LIKE ?', "%#{params[:tagKeyword]}%"] )
+    end
     render json:{ tagKeyword: tag }
   end
 
   def code_search_plan
     return nil if params[:planKeyword] == ""
-    plan = Plan.where( ['code LIKE ?', "%#{params[:planKeyword]}%"] )
+    if params[:planKeyword] == "@"
+      plan = Plan.all
+    else
+      plan = Plan.where( ['code LIKE ?', "%#{params[:planKeyword]}%"] )
+    end
     render json:{ planKeyword: plan }
   end
 
@@ -185,11 +210,15 @@ class GestsController < ApplicationController
       @gest.rank_id = rank[0].code
     end
 
-    room_type = RoomType.where(id: @gest.room_type_id)
-    @gest.room_type_id = room_type[0].code
+    unless @gest.room_type_id.nil?
+      room_type = RoomType.where(id: @gest.room_type_id)
+      @gest.room_type_id = room_type[0].code
+    end
 
-    plan = Plan.where(id: @gest.plan_id)
-    @gest.plan_id = plan[0].code
+    unless @gest.plan_id.nil?
+      plan = Plan.where(id: @gest.plan_id)
+      @gest.plan_id = plan[0].code
+    end
 
     unless @gest.area_id.nil?
       area = Area.where(id: @gest.area_id)

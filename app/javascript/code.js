@@ -234,7 +234,7 @@ function planSearch() {
 
 const regexShowURL = /gests(?=\/\d)/;
 if (location.pathname.match("gests/new") || location.pathname.match(regexShowURL)) {
-  document.addEventListener("DOMContentLoaded", () => {
+  document.addEventListener("click", () => {
     sexSearch();
     rankSearch();
     roomTypeSearch();
