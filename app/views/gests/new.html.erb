@@ -83,8 +83,11 @@
       </div>
       <div class="element">
         <div class="title">リクエスト</div>
-        <% 5.times do %>
-          <%= text_field_tag "gest_tag[code][]", nil, class: "tag_form center" %>
+        <% 5.times do |i| %>
+          <div class="tag_form">
+            <%= text_field_tag "gest_tag#{i}[code][]", nil, class: "tag_form center" %>
+            <%= content_tag(:div, "", class:'code_search_result tag_search_result tag' + i.to_s, id:'tag_search_result' + i.to_s) %>
+          </div>
         <% end %>
       </div>
       <div class="element">

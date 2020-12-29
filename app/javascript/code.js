@@ -155,11 +155,54 @@ function areaSearch() {
   });
 };
 
+// リクエストフォームに入力があった際に予測変換を表示する処理
+function tagSearch(i) {
+  const num = i
+  const tagForm = "gest_tag" + String(num) + "_code_"
+  const inputTagForm = document.getElementById(tagForm);
+  inputTagForm.addEventListener("keyup", () => {
+    const tagKeyword = document.getElementById(tagForm).value;
+    
+    const tagXHR = new XMLHttpRequest();
+    tagXHR.open("GET", `code/search/tag/?tagKeyword=${tagKeyword}`, true);
+    tagXHR.responseType = "json";
+    tagXHR.send();
+    tagXHR.onload = () => {
+      const resultPlace = "tag_search_result" + String(num)
+      const tagSearchResult = document.getElementById(resultPlace);
+      tagSearchResult.innerHTML = "";
+      if (tagXHR.response) {
+        const tags = tagXHR.response.tagKeyword;
+        tags.forEach((tag) => {
+          const tagChildElement = document.createElement("div");
+          tagChildElement.setAttribute("class", "code_child");
+          tagChildElement.setAttribute("id", tag.name);
+          const tagCodeChildElement = document.createElement("span")
+          const tagNameChildElement = document
+          tagChildElement.innerHTML = tag.code + "：" + tag.name;
+          tagSearchResult.appendChild(tagChildElement);
+
+          const clickElement = document.getElementById(tag.name);
+          clickElement.addEventListener("click", () => {
+            document.getElementById(tagForm).value = tag.code;
+          });
+        });
+      };
+      document.addEventListener("click", () => {
+        tagSearchResult.innerHTML = "";
+      });
+    };
+  });
+};
+
 if (location.pathname.match("gests/new")) {
   document.addEventListener("DOMContentLoaded", () => {
     sexSearch();
     rankSearch();
     roomTypeSearch();
     areaSearch();
+    for (let i = 0; i <= 4; i++ ) {
+      tagSearch(i);
+    }
   });
 };

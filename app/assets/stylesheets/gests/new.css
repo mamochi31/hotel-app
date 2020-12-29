@@ -121,26 +121,32 @@ input {
   position: relative;
 }
 
-.code_search_result {
-  position: absolute;
-  color: black;
-  width: 10vw;
-  text-align: center;
-}
-
 .code_child {
   background-color: lightgray;
   border: 1px solid black;
   height: 5vh;
+  min-width: 10vw;
+}
+
+.code_search_result {
+  position: absolute;
+  color: black;
+  text-align: center;
+  min-width: 12vw;
 }
 
 .room_type_code_search_result {
-  width: auto;
+  min-width: 15vw;
 }
 
 .area_search_result {
   left: 13vw;
-  width: 15vw;
-  height: 17vh;
+  max-height: 17vh;
+  overflow: auto;
+  
+}
+
+.tag_search_result {
+  max-height: 17vh;
   overflow: auto;
 }

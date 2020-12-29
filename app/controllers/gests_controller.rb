@@ -77,6 +77,12 @@ class GestsController < ApplicationController
     render json:{ areaKeyword: area }
   end
 
+  def code_search_tag
+    return nil if params[:tagKeyword] == ""
+    tag = Tag.where( ['code LIKE ?', "%#{params[:tagKeyword]}%"] )
+    render json:{ tagKeyword: tag }
+  end
+
   private
 
   def gest_find
