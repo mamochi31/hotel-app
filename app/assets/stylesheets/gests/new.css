@@ -123,16 +123,24 @@ input {
 
 .code_search_result {
   position: absolute;
-  background-color: lightgray;
   color: black;
   width: 10vw;
   text-align: center;
 }
 
 .code_child {
+  background-color: lightgray;
   border: 1px solid black;
+  height: 5vh;
 }
 
 .room_type_code_search_result {
-  width: 20vw;
+  width: auto;
+}
+
+.area_search_result {
+  left: 13vw;
+  width: 15vw;
+  height: 17vh;
+  overflow: auto;
 }

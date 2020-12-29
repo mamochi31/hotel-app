@@ -118,10 +118,48 @@ function roomTypeSearch() {
   });
 };
 
+// 地域フォームに入力があった際に予測変換を表示する処理
+function areaSearch() {
+  const inputAreaForm = document.getElementById("area_form");
+  inputAreaForm.addEventListener("keyup", () => {
+    const areaKeyword = document.getElementById("area_form").value;
+    
+    const areaXHR = new XMLHttpRequest();
+    areaXHR.open("GET", `code/search/area/?areaKeyword=${areaKeyword}`, true);
+    areaXHR.responseType = "json";
+    areaXHR.send();
+    areaXHR.onload = () => {
+      const areaSearchResult = document.getElementById("area_search_result");
+      areaSearchResult.innerHTML = "";
+      if (areaXHR.response) {
+        const areas = areaXHR.response.areaKeyword;
+        areas.forEach((area) => {
+          const areaChildElement = document.createElement("div");
+          areaChildElement.setAttribute("class", "code_child");
+          areaChildElement.setAttribute("id", area.name);
+          const areaCodeChildElement = document.createElement("span")
+          const areaNameChildElement = document
+          areaChildElement.innerHTML = area.code + "：" + area.name;
+          areaSearchResult.appendChild(areaChildElement);
+
+          const clickElement = document.getElementById(area.name);
+          clickElement.addEventListener("click", () => {
+            document.getElementById("area_form").value = area.code;
+          });
+        });
+      };
+      document.addEventListener("click", () => {
+        areaSearchResult.innerHTML = "";
+      });
+    };
+  });
+};
+
 if (location.pathname.match("gests/new")) {
   document.addEventListener("DOMContentLoaded", () => {
     sexSearch();
     rankSearch();
     roomTypeSearch();
+    areaSearch();
   });
 };
