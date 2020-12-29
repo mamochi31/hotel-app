@@ -18,8 +18,7 @@ class GestsController < ApplicationController
       gest_tags_save
       redirect_to gest_path(@gest.id)
     else
-      change_char
-      render :new
+      return
     end
   end
 
@@ -38,7 +37,7 @@ class GestsController < ApplicationController
       gest_tags_update
       redirect_to gest_path(@gest.id)
     else
-      render :show
+      return
     end
   end
 
