@@ -114,6 +114,11 @@ class GestsController < ApplicationController
     render json:{ planKeyword: plan }
   end
 
+  def show_plan
+    plan = Plan.find_by(code: "#{params[:planCode]}")
+    render json:{ planCode: plan }
+  end
+
   private
 
   def gest_find

@@ -73,17 +73,17 @@
         <div class="title">プラン</div>
         <%= f.text_field :plan_id, class:"plan_form required", id:"plan_form", maxlength:"5"%>
         <div class="code_search_result plan_search_result" id="plan_search_result"></div>
-        <div class="plan_name">
+        <div class="plan_name" id="plan_name">
           <%= @plan.name %>
         </div>
       </div>
       <div class="element">
         <div class="title price_title">料金</div>
-        <div class="price">
+        <div class="price" id="unit_price">
           <%= "#{@plan.price}円" %>
         </div>
-        <div class="price">
-          <%= "#{@plan.price * (@gest.adult + @gest.child)}円" %>
+        <div class="price" id="sum_price">
+          <%= "#{@plan.price * @gest.adult}円" %>
         </div>
       </div>
       <div class="element">

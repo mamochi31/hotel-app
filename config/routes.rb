@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get 'gests/code/search/area', to: 'gests#code_search_area'
   get 'gests/code/search/tag', to: 'gests#code_search_tag'
   get 'gests/code/search/plan', to: 'gests#code_search_plan'
+  get 'gests/show/plan', to: 'gests#show_plan'
   resources :gests
   resources :sexes
   resources :ranks

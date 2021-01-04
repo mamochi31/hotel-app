@@ -222,6 +222,7 @@ function planSearch() {
           const clickElement = document.getElementById(plan.name);
           clickElement.addEventListener("click", () => {
             document.getElementById("plan_form").value = plan.code;
+            inputPlanForm.focus();
           });
         });
       };

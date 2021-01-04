@@ -73,12 +73,12 @@
         <div class="title">プラン</div>
         <%= f.text_field :plan_id, class:"plan_form required", id:"plan_form", maxlength:"5"%>
         <div class="code_search_result plan_search_result" id="plan_search_result"></div>
-        <div class="plan_name"></div>
+        <div class="plan_name" id="plan_name"></div>
       </div>
       <div class="element">
         <div class="title price_title">料金</div>
-        <div class="price"></div>
-        <div class="price"></div>
+        <div class="price" id="unit_price"></div>
+        <div class="price" id="sum_price"></div>
       </div>
       <div class="element">
         <div class="title">リクエスト</div>

@@ -10,6 +10,7 @@ require("channels")
 require("../gests_index")
 require("../code")
 require("../date")
+require("../plan")
 
 
 
