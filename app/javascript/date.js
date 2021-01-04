@@ -1,5 +1,5 @@
 // ライブラリ「moment.js」を使用した日付の計算と自動入力
-function date_calc() {
+function dateCalc() {
   // フォームの取得
   const arrDateForm = document.getElementById("arr_date_form");
   const depDateForm = document.getElementById("dep_date_form");
@@ -27,6 +27,6 @@ function date_calc() {
 const regexShowURL = /gests(?=\/\d)/;
 if (location.pathname.match("gests/new") || location.pathname.match(regexShowURL)) {
   document.addEventListener("click", () => {
-    date_calc();
+    dateCalc();
   });
 };
