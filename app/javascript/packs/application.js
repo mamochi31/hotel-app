@@ -9,6 +9,7 @@ require("@rails/activestorage").start()
 require("channels")
 require("../gests_index")
 require("../code")
+require("../date")
 
 
 
