@@ -116,3 +116,37 @@ input {
   position: absolute;
   top: 93vh;
 }
+
+.sex_fome_and_search {
+  position: relative;
+}
+
+.code_child {
+  background-color: lightcyan;
+  border: 1px solid black;
+  height: 5vh;
+  min-width: 10vw;
+}
+
+.code_search_result {
+  position: absolute;
+  color: black;
+  text-align: center;
+  min-width: 12vw;
+  max-height: 17vh;
+  overflow: auto;
+}
+
+.room_type_code_search_result {
+  min-width: 20vw;
+}
+
+.area_search_result {
+  left: 13vw;
+}
+
+.plan_search_result {
+  left: 13vw;
+  min-width: 25vw;
+  max-width: 50vw;
+}
