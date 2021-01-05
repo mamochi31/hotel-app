@@ -2,6 +2,7 @@ class GestsController < ApplicationController
   before_action :gest_params, only: [:create, :update]
   before_action :gest_find, only: [:show, :update, :destroy]
   before_action :plan_find, only: [:show, :update]
+  before_action :search_gest, only: [:search_index, :search]
 
   def index
   end
@@ -51,7 +52,7 @@ class GestsController < ApplicationController
   end
 
   def search
-    @gests = Gest.name_search(params[:name])
+    @gests = @q.result
   end
 
   def code_search_sex
@@ -237,5 +238,9 @@ class GestsController < ApplicationController
       tag = Tag.where(id: gest_tag)
       @tags << tag[0].code
     end
+  end
+
+  def search_gest
+    @q = Gest.ransack(params[:q])
   end
 end
