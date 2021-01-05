@@ -2,10 +2,18 @@
   <div class="head">予約検索</div>
 </header>
 <div class="main">
-  <%= form_with(url: gests_search_path, local: true, method: :get, class: "search_form") do |f| %>
+  <%= search_form_for @q, url: gests_search_path, class: "search_form" do |f| %>
     <div class="search_form_head">
-      <div class="title">名前</div>
-      <%= f.text_field :name, placeholder: "カタカナで入力", class: "name_search" %>
+      <%= f.label :name1_kana_cont, '名前', class: "title" %>
+      <%= f.search_field :name1_kana_cont, placeholder: "カタカナで入力", class: "name_search" %>
+    </div>
+    <div class="search_form_body">
+      <%= f.label :arr_date_eq, '到着日', class: "title" %>
+      <%= f.date_field :arr_date_eq, class: "date_search" %>
+      <%= f.label :plan_code_eq, 'プラン', class: "title" %>
+      <%= f.search_field :plan_code_eq, class: "plan_search", id: "plan_search" %>
+      <%= f.label :room_type_code_eq, '部屋タイプ', class: "title" %>
+      <%= f.search_field :room_type_code_eq, class: "room_type_search", id: "room_type_search" %>
     </div>
     <div class="search_form_foot">
       <%= f.submit "検索", class: "search_btn" %>

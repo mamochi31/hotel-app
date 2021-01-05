@@ -3,12 +3,26 @@
   border: black;
 }
 
-.search_form_head, .results_column, .result {
+.search_form_head, .search_form_body, .results_column, .result {
   display: flex;
 }
 
 .name_search {
   width: 20vw;
+}
+
+.date_search {
+  width: 20vw;
+  margin-right: 5vw;
+}
+
+.plan_search, .room_type_search {
+  width: 7vw;
+  text-align: center;
+}
+
+.plan_search {
+  margin-right: 5vw;
 }
 
 .search_btn {
