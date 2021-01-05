@@ -65,8 +65,6 @@ function rankSearch() {
           const rankChildElement = document.createElement("div");
           rankChildElement.setAttribute("class", "code_child");
           rankChildElement.setAttribute("id", rank.name);
-          const rankCodeChildElement = document.createElement("span")
-          const rankNameChildElement = document
           rankChildElement.innerHTML = rank.code + "：" + rank.name;
           rankSearchResult.appendChild(rankChildElement);
 
@@ -137,8 +135,6 @@ function areaSearch() {
           const areaChildElement = document.createElement("div");
           areaChildElement.setAttribute("class", "code_child");
           areaChildElement.setAttribute("id", area.name);
-          const areaCodeChildElement = document.createElement("span")
-          const areaNameChildElement = document
           areaChildElement.innerHTML = area.code + "：" + area.name;
           areaSearchResult.appendChild(areaChildElement);
 
@@ -177,8 +173,6 @@ function tagSearch(i) {
           const tagChildElement = document.createElement("div");
           tagChildElement.setAttribute("class", "code_child");
           tagChildElement.setAttribute("id", tag.name);
-          const tagCodeChildElement = document.createElement("span")
-          const tagNameChildElement = document
           tagChildElement.innerHTML = tag.code + "：" + tag.name;
           tagSearchResult.appendChild(tagChildElement);
 
@@ -214,15 +208,12 @@ function planSearch() {
           const planChildElement = document.createElement("div");
           planChildElement.setAttribute("class", "code_child");
           planChildElement.setAttribute("id", plan.name);
-          const planCodeChildElement = document.createElement("span")
-          const planNameChildElement = document
           planChildElement.innerHTML = plan.code + "：" + plan.name;
           planSearchResult.appendChild(planChildElement);
 
           const clickElement = document.getElementById(plan.name);
           clickElement.addEventListener("click", () => {
             document.getElementById("plan_form").value = plan.code;
-            inputPlanForm.focus();
           });
         });
       };
