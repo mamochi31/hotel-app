@@ -11,9 +11,11 @@
       <%= f.label :arr_date_eq, '到着日', class: "title" %>
       <%= f.date_field :arr_date_eq, class: "date_search" %>
       <%= f.label :plan_code_eq, 'プラン', class: "title" %>
-      <%= f.search_field :plan_code_eq, class: "plan_search", id: "plan_search" %>
+      <%= f.search_field :plan_code_eq, class: "plan_search", id: "plan_form" %>
+      <div class="code_search_result plan_search_result" id="plan_search_result" style="left: 47vw;"></div>
       <%= f.label :room_type_code_eq, '部屋タイプ', class: "title" %>
-      <%= f.search_field :room_type_code_eq, class: "room_type_search", id: "room_type_search" %>
+      <%= f.search_field :room_type_code_eq, class: "room_type_search", id: "room_type_form" %>
+      <div class="code_search_result room_type_search_result" id="room_type_search_result" style="left: 66vw;"></div>
     </div>
     <div class="search_form_foot">
       <%= f.submit "検索", class: "search_btn" %>

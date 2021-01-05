@@ -13,7 +13,7 @@
       <div class="element">
         <div class="title">ゲスト１</div>
         <%= f.text_field :name1_kana, class:"gest_name_form name_kana required", id:"gest_name1", maxlength:"20"%>
-        <div class="sex_fome_and_search">
+        <div class="sex_form_and_search">
           <%= f.text_field :sex_id, class:"sex_form sex center", id:"sex_form", maxlength:"1"%>
           <div class="code_search_result" id="sex_search_result"></div>
         </div>
@@ -61,9 +61,7 @@
       <div class="element">
         <div class="title">部屋タイプ</div>
         <%= f.text_field :room_type_id, class:"room_type_form room required", id:"room_type_form", maxlength:"3"%>
-        <div class="room_type_fome_and_search">
-          <div class="code_search_result room_type_code_search_result" id="room_type_search_result"></div>
-        </div>
+        <div class="code_search_result room_type_search_result left13" id="room_type_search_result"></div>
       </div>
       <div class="element">
         <div class="title">部屋番号</div>
@@ -72,7 +70,7 @@
       <div class="element">
         <div class="title">プラン</div>
         <%= f.text_field :plan_id, class:"plan_form required", id:"plan_form", maxlength:"5"%>
-        <div class="code_search_result plan_search_result" id="plan_search_result"></div>
+        <div class="code_search_result plan_search_result left13" id="plan_search_result"></div>
         <div class="plan_name" id="plan_name"></div>
       </div>
       <div class="element">
@@ -92,7 +90,7 @@
       <div class="element">
         <div class="title area">地域</div>
         <%= f.text_field :area_id, class:"area_form center", id:"area_form", maxlength:"4"%>
-        <div class="code_search_result area_search_result" id="area_search_result"></div>
+        <div class="code_search_result area_search_result left13" id="area_search_result"></div>
         <div class="title at_title">登録日</div>
         <div class="at"></div>
       </div>

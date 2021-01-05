@@ -8,7 +8,7 @@ function sexSearch() {
     const sexKeyword = document.getElementById("sex_form").value;
     // 取得した文字列を元に非同期通信でコードを検索
     const sexXHR = new XMLHttpRequest();
-    sexXHR.open("GET", `code/search/sex/?sexKeyword=${sexKeyword}`, true);
+    sexXHR.open("GET", `http://localhost:3000/gests/code/search/sex/?sexKeyword=${sexKeyword}`, true);
     sexXHR.responseType = "json";
     sexXHR.send();
     sexXHR.onload = () => {
@@ -53,7 +53,7 @@ function rankSearch() {
     const rankKeyword = document.getElementById("rank_form").value;
     
     const rankXHR = new XMLHttpRequest();
-    rankXHR.open("GET", `code/search/rank/?rankKeyword=${rankKeyword}`, true);
+    rankXHR.open("GET", `http://localhost:3000/gests/code/search/rank/?rankKeyword=${rankKeyword}`, true);
     rankXHR.responseType = "json";
     rankXHR.send();
     rankXHR.onload = () => {
@@ -88,7 +88,7 @@ function roomTypeSearch() {
     const roomTypeKeyword = document.getElementById("room_type_form").value;
     
     const roomTypeXHR = new XMLHttpRequest();
-    roomTypeXHR.open("GET", `code/search/room_type/?roomTypeKeyword=${roomTypeKeyword}`, true);
+    roomTypeXHR.open("GET", `http://localhost:3000/gests/code/search/room_type/?roomTypeKeyword=${roomTypeKeyword}`, true);
     roomTypeXHR.responseType = "json";
     roomTypeXHR.send();
     roomTypeXHR.onload = () => {
@@ -123,7 +123,7 @@ function areaSearch() {
     const areaKeyword = document.getElementById("area_form").value;
     
     const areaXHR = new XMLHttpRequest();
-    areaXHR.open("GET", `code/search/area/?areaKeyword=${areaKeyword}`, true);
+    areaXHR.open("GET", `http://localhost:3000/gests/code/search/area/?areaKeyword=${areaKeyword}`, true);
     areaXHR.responseType = "json";
     areaXHR.send();
     areaXHR.onload = () => {
@@ -160,7 +160,7 @@ function tagSearch(i) {
     const tagKeyword = document.getElementById(tagForm).value;
     
     const tagXHR = new XMLHttpRequest();
-    tagXHR.open("GET", `code/search/tag/?tagKeyword=${tagKeyword}`, true);
+    tagXHR.open("GET", `http://localhost:3000/gests/code/search/tag/?tagKeyword=${tagKeyword}`, true);
     tagXHR.responseType = "json";
     tagXHR.send();
     tagXHR.onload = () => {
@@ -196,7 +196,7 @@ function planSearch() {
     const planKeyword = document.getElementById("plan_form").value;
     
     const planXHR = new XMLHttpRequest();
-    planXHR.open("GET", `code/search/plan/?planKeyword=${planKeyword}`, true);
+    planXHR.open("GET", `http://localhost:3000/gests/code/search/plan/?planKeyword=${planKeyword}`, true);
     planXHR.responseType = "json";
     planXHR.send();
     planXHR.onload = () => {
@@ -232,6 +232,13 @@ if (location.pathname.match("gests/new") || location.pathname.match(regexShowURL
     roomTypeSearch();
     areaSearch();
     for (let i = 0; i <= 4; i++ ) { tagSearch(i); };
+    planSearch();
+  });
+};
+
+if (location.pathname == "/gests/search/index"){
+  document.addEventListener("DOMContentLoaded", () => {
+    roomTypeSearch();
     planSearch();
   });
 };
