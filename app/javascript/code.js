@@ -33,11 +33,11 @@ function sexSearch() {
           sexSearchResult.appendChild(sexChildElement);
           // 予測変換をクリックするとクリックしたコードを入力される
           const clickElement = document.getElementById(sex.name);
-          clickElement.addEventListener("click", () => {
+          clickElement.addEventListener("mousedown", () => {
             document.getElementById("sex_form").value = sex.code;
           });
-          // ページ内のどこかをクリックすると予測変換が消えるように設定
-          document.addEventListener("click", () => {
+          // 入力フォームからフォーカスが外れると予測変換が消えるように設定
+          inputSexForm.addEventListener("blur", () => {
             sexSearchResult.innerHTML = "";
           });
         });
@@ -69,12 +69,12 @@ function rankSearch() {
           rankSearchResult.appendChild(rankChildElement);
 
           const clickElement = document.getElementById(rank.name);
-          clickElement.addEventListener("click", () => {
+          clickElement.addEventListener("mousedown", () => {
             document.getElementById("rank_form").value = rank.code;
           });
         });
       };
-      document.addEventListener("click", () => {
+      inputRankForm.addEventListener("blur", () => {
         rankSearchResult.innerHTML = "";
       });
     };
@@ -104,12 +104,12 @@ function roomTypeSearch() {
           roomTypeSearchResult.appendChild(roomTypeChildElement);
 
           const clickElement = document.getElementById(roomType.name);
-          clickElement.addEventListener("click", () => {
+          clickElement.addEventListener("mousedown", () => {
             document.getElementById("room_type_form").value = roomType.code;
           });
         });
       };
-      document.addEventListener("click", () => {
+      inputRoomTypeForm.addEventListener("blur", () => {
         roomTypeSearchResult.innerHTML = "";
       });
     };
@@ -139,12 +139,12 @@ function areaSearch() {
           areaSearchResult.appendChild(areaChildElement);
 
           const clickElement = document.getElementById(area.name);
-          clickElement.addEventListener("click", () => {
+          clickElement.addEventListener("mousedown", () => {
             document.getElementById("area_form").value = area.code;
           });
         });
       };
-      document.addEventListener("click", () => {
+      inputAreaForm.addEventListener("blur", () => {
         areaSearchResult.innerHTML = "";
       });
     };
@@ -177,12 +177,12 @@ function tagSearch(i) {
           tagSearchResult.appendChild(tagChildElement);
 
           const clickElement = document.getElementById(tag.name);
-          clickElement.addEventListener("click", () => {
+          clickElement.addEventListener("mousedown", () => {
             document.getElementById(tagForm).value = tag.code;
           });
         });
       };
-      document.addEventListener("click", () => {
+      inputTagForm.addEventListener("blur", () => {
         tagSearchResult.innerHTML = "";
       });
     };
@@ -212,12 +212,12 @@ function planSearch() {
           planSearchResult.appendChild(planChildElement);
 
           const clickElement = document.getElementById(plan.name);
-          clickElement.addEventListener("click", () => {
+          clickElement.addEventListener("mousedown", () => {
             document.getElementById("plan_form").value = plan.code;
           });
         });
       };
-      document.addEventListener("click", () => {
+      inputPlanForm.addEventListener("blur", () => {
         planSearchResult.innerHTML = "";
       });
     };
