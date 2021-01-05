@@ -34,16 +34,16 @@
     <div class="results">
       <% unless @gests == nil %>
         <% @gests.each do |gest| %>
-        <div class="result">
-          <div class="id_column"><%= gest.id %></div>
-          <div class="name_column"><%= gest.name1_kana %></div>
-          <div class="date_column"><%= gest.arr_date %></div>
-          <div class="night_column"><%= gest.night %></div>
-          <div class="date_column"><%= gest.dep_date %></div>
-          <div class="people_column"><%= gest.adult + gest.child + gest.baby %></div>
-          <div class="number_room_column"><%= gest.number_of_room %></div>
-          <div class="at_column"><%= l gest.created_at %></div>
-          <div class="at_column"><%= l gest.updated_at %></div>
+          <div class="result">
+            <div class="id_column"><%= gest.id %></div>
+            <div class="name_column"><%= gest.name1_kana %></div>
+            <div class="date_column"><%= gest.arr_date %></div>
+            <div class="night_column"><%= gest.night %></div>
+            <div class="date_column"><%= gest.dep_date %></div>
+            <div class="people_column"><%= gest.adult + gest.child + gest.baby %></div>
+            <div class="number_room_column"><%= gest.number_of_room %></div>
+            <div class="at_column"><%= l gest.created_at %></div>
+            <div class="at_column"><%= l gest.updated_at %></div>
           </div>
         <% end %>
       <% end %>

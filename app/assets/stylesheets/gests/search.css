@@ -36,10 +36,6 @@
   overflow: scroll;
 }
 
-.results_column {
-  position: fixed;
-}
-
 .column {
   text-align: center;
   background-color: lightblue;
