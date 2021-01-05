@@ -94,7 +94,7 @@ function multiWindowOpen() {
       style: {
         backgroundColor: 'rgba(220,220,220,0.8)',
       },
-      url: 'http://localhost:3000/ranks'
+      url: 'http://localhost:3000/room_types'
     })
     frame.hideFrameComponent('minimizeButton');
     frame.hideFrameComponent('zoomButton');
