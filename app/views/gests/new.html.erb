@@ -33,12 +33,12 @@
       </div>
       <div class="element">
         <div class="title">会社名</div>
-        <%= f.text_field :company_kana, class:"company_form", id:"company_form", placeholder:"カタカナで入力してください", maxlength:"30"%>
-        <%= f.text_field :company_kanji, class:"company_form", id:"company_form", placeholder:"漢字で入力してください", maxlength:"30"%>
+        <%= f.text_field :company_kana, class:"company_form", id:"company_form", placeholder:"フリガナ", maxlength:"30"%>
+        <%= f.text_field :company_kanji, class:"company_form", id:"company_form", placeholder:"漢字", maxlength:"30"%>
       </div>
       <div class="element">
         <div class="title">電話番号</div>
-        <%= f.text_field :phone_number, class:"phone_number_form required", id:"phone_number_form", placeholder:"半角数字で入力してください", maxlength:"20"%>
+        <%= f.text_field :phone_number, class:"phone_number_form required", id:"phone_number_form", maxlength:"20"%>
       </div>
       <div class="element">
         <div class="title">到着日</div>
@@ -106,4 +106,3 @@
     </div>
   <% end %>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

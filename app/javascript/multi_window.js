@@ -1,7 +1,11 @@
-function multiWindowOpen() {
+function JSFrameCreate() {
   // JSFrameを生成（共通のJSFrameを使うとフォーカスの切り替えができる）
-  const jsFrame = new JSFrame();
+  jsFrame = new JSFrame();  //グローバル変数
+};
 
+window.addEventListener("load", JSFrameCreate);
+
+function multiWindowOpen() {
   // 予約登録をクリックした時の処理
   const newClick = document.getElementById("menu-new");
   newClick.addEventListener("click", (e) => {
@@ -25,7 +29,8 @@ function multiWindowOpen() {
   // 予約検索をクリックした時の処理
   const searchClick = document.getElementById("menu-search");
   searchClick.addEventListener("click", (e) => {
-    const frame = jsFrame.create({
+    frameGestSearch = jsFrame.create({
+      name: `search`,
       title: `予約検索`,
       left: 40, top: 100, width: 800, height: 500,
       minWidth: 800,
@@ -36,9 +41,9 @@ function multiWindowOpen() {
       },
       url: 'http://localhost:3000/gests/search/index'
     })
-    frame.hideFrameComponent('minimizeButton');
-    frame.hideFrameComponent('zoomButton');
-    frame.show();
+    frameGestSearch.hideFrameComponent('minimizeButton');
+    frameGestSearch.hideFrameComponent('zoomButton');
+    frameGestSearch.show();
     e.preventDefault();
   });
 
@@ -161,11 +166,11 @@ function multiWindowOpen() {
     frame.show();
     e.preventDefault();
   });
-}
+};
 
 // rootブラウザロードの際にmultiWindowOpenを実行
 if (location.pathname == "/" || location.pathname == "/gests"){
-  document.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("load", () => {
     multiWindowOpen();
   });
 };

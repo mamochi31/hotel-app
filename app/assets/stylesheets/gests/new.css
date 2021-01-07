@@ -1,7 +1,6 @@
 * {
   font-size: 1vh;
   font-size: 1vw;
-  box-sizing: border-box;
 }
 
 .head {
@@ -115,6 +114,7 @@ input {
 .foot {
   position: absolute;
   top: 93vh;
+  display: flex;
 }
 
 .sex_form_and_search {
@@ -148,4 +148,16 @@ input {
 
 .left13 {
   left: 13vw;
+}
+
+
+.back_button_link {
+  width: 5vw;
+  margin-right: 2vw;
+}
+
+.back_button {
+  height:100%;
+  width: 100%;
+  margin: 0;
 }

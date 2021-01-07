@@ -125,7 +125,9 @@
     </div>
   <% end %>
   <div class="foot">
+    <%= link_to :back, class: "back_button_link" do %>
+      <button class="back_button">戻る</button>
+    <% end %>
     <%= button_to "削除", gest_path(@gest.id), method: :delete %>
   </div>
 </div>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>

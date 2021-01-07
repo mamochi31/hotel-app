@@ -236,7 +236,7 @@ if (location.pathname.match("gests/new") || location.pathname.match(regexShowURL
   });
 };
 
-if (location.pathname == "/gests/search/index"){
+if (location.pathname == "/gests/search"){
   document.addEventListener("DOMContentLoaded", () => {
     roomTypeSearch();
     planSearch();
