@@ -3,12 +3,26 @@
   border: black;
 }
 
-.search_form_head, .results_column, .result {
+.search_form_head, .search_form_body, .results_column, .result {
   display: flex;
 }
 
 .name_search {
   width: 20vw;
+}
+
+.date_search {
+  width: 20vw;
+  margin-right: 5vw;
+}
+
+.plan_search, .room_type_search {
+  width: 7vw;
+  text-align: center;
+}
+
+.plan_search {
+  margin-right: 5vw;
 }
 
 .search_btn {
@@ -20,10 +34,6 @@
   height: 65vh;
   border: 1px solid black;
   overflow: scroll;
-}
-
-.results_column {
-  position: fixed;
 }
 
 .column {
@@ -39,7 +49,7 @@
 }
 
 .name_column {
-  width: 16vw;
+  width: 17vw;
   border: 1px solid black;
   height: 5vh;
   line-height: 5vh;
@@ -53,7 +63,7 @@
 }
 
 .date_column, .at_column {
-  width: 15vw;
+  width: 16vw;
   border: 1px solid black;
   height: 5vh;
   line-height: 5vh;
@@ -61,4 +71,13 @@
 
 .result {
   text-align: center;
+  position: relative;
+}
+
+.show_link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height:100%;
+  width: 100%;
 }

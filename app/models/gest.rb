@@ -25,8 +25,4 @@ class Gest < ApplicationRecord
   with_options numericality: { only_integer: true } do
     validates :room_type_id, :plan_id
   end
-
-  def self.name_search(search)
-    Gest.where('name1_kana LIKE(?)', "%#{search}%") if search != ''
-  end
 end
