@@ -210,3 +210,9 @@ if (location.pathname.match("/areas")) {
     CreateWindow("areas");
   });
 };
+
+if (location.pathname.match("/ranks")) {
+  window.addEventListener("load", () => {
+    CreateWindow("ranks");
+  });
+};
