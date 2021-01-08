@@ -4,7 +4,7 @@
   <%= search_form_for @q, url: tags_search_path do |f| %>
     <div class="tag_search_form">
       <%= f.label :code_cont, 'コード', class: "title" %>
-      <%= f.search_field :code_cont, class: "tag_code_form", maxlength:"4" %>
+      <%= f.search_field :code_cont, class: "tag_code_form", maxlength:"5" %>
       <%= f.label :name_cont, '名前', class: "title" %>
       <%= f.search_field :name_cont, class: "tag_name_form" %>
       <%= f.submit "検索", class: "tag_search_btn" %>

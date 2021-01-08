@@ -216,3 +216,9 @@ if (location.pathname.match("/ranks")) {
     CreateWindow("ranks");
   });
 };
+
+if (location.pathname.match("/tags")) {
+  window.addEventListener("load", () => {
+    CreateWindow("tags");
+  });
+};
