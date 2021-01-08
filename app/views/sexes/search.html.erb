@@ -10,7 +10,7 @@
       <%= f.submit "検索", class: "sex_search_btn" %>
     </div>
   <% end %>
-  <div class="sex_all">
+  <div class="search_results">
     <div class="sex_column">
       <div class="column id_column">ID</div>
       <div class="column code_column">コード</div>
@@ -18,17 +18,20 @@
       <div class="column at_column">登録日</div>
       <div class="column at_column">更新日</div>
     </div>
-    <% unless @sexes == nil %>
-      <% @sexes.each do |sex| %>
-      <div class="result">
-        <div class="id_column"><%= sex.id %></div>
-        <div class="code_column"><%= sex.code %></div>
-        <div class="name_column"><%= sex.name %></div>
-        <div class="at_column"><%= l sex.created_at %></div>
-        <div class="at_column"><%= l sex.updated_at %></div>
-        </div>
+    <div class="results">
+      <% unless @sexes == nil %>
+        <% @sexes.each do |sex| %>
+          <div class="result sex_result">
+            <div class="id_column"><%= sex.id %></div>
+            <div class="code_column"><%= sex.code %></div>
+            <div class="name_column"><%= sex.name %></div>
+            <div class="at_column"><%= l sex.created_at %></div>
+            <div class="at_column"><%= l sex.updated_at %></div>
+            <%= content_tag(:div, "", class: "show_link", id: sex.id) %>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
 </div>
 <div class="foot">
 </div>

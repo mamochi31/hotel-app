@@ -20,6 +20,10 @@ class SexesController < ApplicationController
    end
   end
 
+  def show
+    @sex = Sex.find(params[:id])
+  end
+
   def search
     @sexes = @q.result
   end

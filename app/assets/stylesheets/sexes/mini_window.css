@@ -1,5 +1,5 @@
 .mini_head {
-  height: 15vh;
+  height: 17vh;
   width: 20vw;
   font-size: 4vh;
   font-size: 4vw;
@@ -7,14 +7,14 @@
   color: white;
   text-align: center;
   line-height: 15vh;
-  margin: 4vh 0 4vh 2vw;
+  margin: 6vh 0 6vh 2vw;
 }
 
 .mini_main {
   background-color: white;
-  margin: 4vh 2vw;
-  line-height: 13vh;
-  height: 70vh;
+  margin: 6vh 2vw;
+  line-height: 15vh;
+  height: 64vh;
   position: relative;
 }
 
@@ -29,7 +29,7 @@
 }
 
 .mini_title {
-  height: 13vh;
+  height: 15vh;
   width: 15vw;
   border: 1px solid black;
   text-align: center;
@@ -37,7 +37,7 @@
 }
 
 .mini_code_form, .mini_name_form {
-  height: 13vh;
+  height: 15vh;
   text-align: center;
   display: inline;
 }
@@ -51,6 +51,6 @@
 }
 
 .mini_create_btn {
-  height: 13vh;
+  height: 15vh;
   width: 10vw;
 }

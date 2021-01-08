@@ -24,7 +24,7 @@
 }
 
 .code_column {
-  width: 6vw;
+  width: 7vw;
   border: 1px solid black;
   height: 5vh;
   line-height: 5vh;
@@ -42,4 +42,8 @@
 
 .sex_search_btn {
   margin: 0 0 0 auto;
+}
+
+.sex_result {
+  width: 59vw;
 }
