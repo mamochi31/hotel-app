@@ -1,12 +1,12 @@
 <div class="head">性別</div>
 <div class="main">
-  <%= form_with(model: @sex, local: true, class:"sex_new_form") do |f| %>
-    <div class="sex_create_form">
-      <div class="title">コード</div>
-      <%= f.text_field :code, class: "sex_code_form", maxlength:"1" %>
-      <div class="title">名前</div>
-      <%= f.text_field :name, class: "sex_name_form" %>
-      <%= f.submit "作成", class: "create_btn" %>
+  <%= search_form_for @q, url: sexes_search_path do |f| %>
+    <div class="sex_search_form">
+      <%= f.label :code_cont, 'コード', class: "title" %>
+      <%= f.search_field :code_cont, class: "sex_code_form", maxlength:"1" %>
+      <%= f.label :name_cont, '名前', class: "title" %>
+      <%= f.search_field :name_cont, class: "sex_name_form" %>
+      <%= f.submit "検索", class: "sex_search_btn" %>
     </div>
   <% end %>
   <div class="sex_all">
