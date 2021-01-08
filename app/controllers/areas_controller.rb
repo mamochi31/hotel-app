@@ -25,7 +25,6 @@ class AreasController < ApplicationController
   end
 
   def update
-    binding.pry
     if @area.update(area_params)
       redirect_to area_path(@area.id)
     else
