@@ -21,14 +21,14 @@
     <div class="results">
       <% unless @areas == nil %>
         <% @areas.each do |area| %>
-        <div class="result area_result">
-          <div class="id_column"><%= area.id %></div>
-          <div class="code_column"><%= area.code %></div>
-          <div class="name_column"><%= area.name %></div>
-          <div class="at_column"><%= l area.created_at %></div>
-          <div class="at_column"><%= l area.updated_at %></div>
-          <%= content_tag(:div, "", class: "show_link", id: area.id) %>
-        </div>
+          <div class="result area_result">
+            <div class="id_column"><%= area.id %></div>
+            <div class="code_column"><%= area.code %></div>
+            <div class="name_column"><%= area.name %></div>
+            <div class="at_column"><%= l area.created_at %></div>
+            <div class="at_column"><%= l area.updated_at %></div>
+            <%= content_tag(:div, "", class: "show_link", id: area.id) %>
+          </div>
         <% end %>
       <% end %>
     </div>
