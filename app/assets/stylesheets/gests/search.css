@@ -74,7 +74,7 @@
   position: relative;
 }
 
-.show_link {
+.show_link, .sexes {
   position: absolute;
   top: 0;
   left: 0;

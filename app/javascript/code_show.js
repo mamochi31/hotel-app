@@ -1,5 +1,5 @@
 // 性別詳細ページのウィンドウ作成
-function sexCodeShow() {
+function CodeShow(n) {
   let results = document.getElementsByClassName("result");
   results = Array.from(results);
   if (results != "") {
@@ -17,7 +17,8 @@ function sexCodeShow() {
         result.removeAttribute("style", "background-color: lightyellow;");
       });
       result.addEventListener("dblclick", (e) => {
-        const sexId = result.children[5].getAttribute("id")
+        const id = result.children[n].getAttribute("id");
+        const path = result.children[n].getAttribute("class");
         const frame = jsFrame.create({
           title: `詳細`,
           left: 200, top: 80, width: 400, height: 180,
@@ -27,7 +28,7 @@ function sexCodeShow() {
           style: {
             backgroundColor: 'rgba(220,220,220,0.8)',
           },
-          url: `http://localhost:3000/sexes/${sexId}`
+          url: `http://localhost:3000/${path}/${id}`
         })
         frame.hideFrameComponent('minimizeButton');
         frame.hideFrameComponent('zoomButton');
@@ -40,6 +41,6 @@ function sexCodeShow() {
 
 if (location.pathname == "/sexes" || location.pathname.match("/sexes/search")) {
   window.addEventListener("load", () => {
-    sexCodeShow();
+    CodeShow(5);
   });
 };
