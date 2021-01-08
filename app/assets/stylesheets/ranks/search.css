@@ -1,4 +1,4 @@
-.rank_create_form {
+.rank_search_form {
   display: flex;
   margin-bottom: 5vh;
 }
@@ -10,17 +10,7 @@
 }
 
 .rank_name_form {
-  width: 40vw;
-}
-
-.create_btn {
-  margin: 0 0 0 auto;
-}
-
-.rank_all {
-  height: 75vh;
-  border: 1px solid black;
-  overflow: scroll;
+  width: 20vw;
 }
 
 .rank_column {
@@ -28,8 +18,26 @@
 }
 
 .code_column {
-  width: 6vw;
+  width: 7vw;
   border: 1px solid black;
   height: 5vh;
   line-height: 5vh;
+}
+
+.create_button {
+  margin-bottom: 2vh;
+  width: 7vw;
+  height: 5vh;
+}
+
+.create_btn {
+  text-align: center;
+}
+
+.rank_search_btn {
+  margin: 0 0 0 auto;
+}
+
+.rank_result {
+  width: 59vw;
 }
