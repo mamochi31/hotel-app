@@ -10,6 +10,12 @@ Rails.application.routes.draw do
   get 'gests/code/search/tag', to: 'gests#code_search_tag'
   get 'gests/code/search/plan', to: 'gests#code_search_plan'
   get 'gests/show/plan', to: 'gests#show_plan'
+  get 'sexes/search', to: 'sexes#search'
+  get 'ranks/search', to: 'ranks#search'
+  get 'room_types/search', to: 'room_types#search'
+  get 'plans/search', to: 'plans#search'
+  get 'tags/search', to: 'tags#search'
+  get 'areas/search', to: 'areas#search'
   resources :gests
   resources :sexes
   resources :ranks
