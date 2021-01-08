@@ -14,7 +14,7 @@ class PlansController < ApplicationController
   def create
     @plan = Plan.new(plan_params)
     if @plan.valid?
-      @plan.save 
+      @plan.save
       redirect_to new_plan_path
     else
       render :new

@@ -1,6 +1,7 @@
-.plan_create_form {
+.plans_search_form {
   display: flex;
   margin-bottom: 5vh;
+  width: 100%;
 }
 
 .plan_code_form {
@@ -11,26 +12,24 @@
 
 .plan_name_form {
   width: 40vw;
-  margin-right: 5vw;
-}
-
-.plan_price_form {
-  width: 7vw;
-  text-align: center;
-}
-
-.create_btn {
-  margin: 0 0 0 auto;
-}
-
-.plan_all {
-  height: 75vh;
-  border: 1px solid black;
-  overflow: scroll;
 }
 
 .plan_column {
   display: flex;
+}
+
+.create_button {
+  margin-bottom: 2vh;
+  width: 7vw;
+  height: 5vh;
+}
+
+.plan_search_btn {
+  margin: 0 0 0 auto;
+}
+
+.plan_result {
+  width: 59vw;
 }
 
 .plan_name_column {
@@ -38,7 +37,6 @@
   border: 1px solid black;
   height: 5vh;
   line-height: 5vh;
-  padding: 0 1vw;
 }
 
 .price_column {
@@ -46,4 +44,9 @@
   border: 1px solid black;
   height: 5vh;
   line-height: 5vh;
+}
+
+.plan_price_form {
+  width: 7vw;
+  text-align: center;
 }
