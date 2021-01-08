@@ -27,7 +27,7 @@
             <div class="name_column"><%= sex.name %></div>
             <div class="at_column"><%= l sex.created_at %></div>
             <div class="at_column"><%= l sex.updated_at %></div>
-            <%= content_tag(:div, "", class: "sexes", id: sex.id) %>
+            <%= content_tag(:div, "", class: "show_link", id: sex.id) %>
           </div>
         <% end %>
       <% end %>

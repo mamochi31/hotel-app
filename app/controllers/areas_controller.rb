@@ -25,6 +25,7 @@ class AreasController < ApplicationController
   end
 
   def update
+    binding.pry
     if @area.update(area_params)
       redirect_to area_path(@area.id)
     else
@@ -51,7 +52,7 @@ class AreasController < ApplicationController
   end
 
   def area_find
-    @sex = Area.find(params[:id])
+    @area = Area.find(params[:id])
   end
 
   def search_area

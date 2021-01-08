@@ -1,5 +1,5 @@
-// 性別詳細ページのウィンドウ作成
-function CodeShow(n) {
+// 各コード詳細ページのウィンドウ作成
+function CodeShow(n, path) {
   let results = document.getElementsByClassName("result");
   results = Array.from(results);
   if (results != "") {
@@ -18,7 +18,6 @@ function CodeShow(n) {
       });
       result.addEventListener("dblclick", (e) => {
         const id = result.children[n].getAttribute("id");
-        const path = result.children[n].getAttribute("class");
         const frame = jsFrame.create({
           title: `詳細`,
           left: 200, top: 80, width: 400, height: 180,
@@ -41,6 +40,12 @@ function CodeShow(n) {
 
 if (location.pathname == "/sexes" || location.pathname.match("/sexes/search")) {
   window.addEventListener("load", () => {
-    CodeShow(5);
+    CodeShow(5, "sexes");
+  });
+};
+
+if (location.pathname == "/areas" || location.pathname.match("/areas/search")) {
+  window.addEventListener("load", () => {
+    CodeShow(5, "areas");
   });
 };
