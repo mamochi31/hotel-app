@@ -24,6 +24,15 @@ class SexesController < ApplicationController
     @sex = Sex.find(params[:id])
   end
 
+  def update
+    @sex = Sex.find(params[:id])
+    if @sex.update(sex_params)
+      redirect_to sex_path(@sex.id)
+    else
+      render :show
+    end
+  end
+
   def search
     @sexes = @q.result
   end
