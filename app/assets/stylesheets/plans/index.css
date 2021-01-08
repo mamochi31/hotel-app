@@ -41,13 +41,6 @@
   padding: 0 1vw;
 }
 
-.code_column {
-  width: 7vw;
-  border: 1px solid black;
-  height: 5vh;
-  line-height: 5vh;
-}
-
 .price_column {
   width: 8vw;
   border: 1px solid black;

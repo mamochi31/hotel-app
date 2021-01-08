@@ -17,13 +17,6 @@
   display: flex;
 }
 
-.code_column {
-  width: 7vw;
-  border: 1px solid black;
-  height: 5vh;
-  line-height: 5vh;
-}
-
 .create_button {
   margin-bottom: 2vh;
   width: 7vw;
