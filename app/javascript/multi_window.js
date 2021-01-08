@@ -175,13 +175,13 @@ if (location.pathname == "/" || location.pathname == "/gests"){
   });
 };
 
-// 性別作成フレーム内で新規作成をクリックしたときの処理
-function sexCreateWindow() {
+// 各コード作成フレーム内で新規作成をクリックしたときの処理
+function CreateWindow(path) {
   const createButton = document.getElementById("create_button");
   if (createButton != null) {
     createButton.addEventListener("click", (e) => {
       const frame = jsFrame.create({
-        title: `性別作成`,
+        title: `新規作成`,
         left: 200, top: 80, width: 400, height: 180,
         minWidth: 300,
         minHeight: 150,
@@ -189,7 +189,7 @@ function sexCreateWindow() {
         style: {
           backgroundColor: 'rgba(220,220,220,0.8)',
         },
-        url: 'http://localhost:3000/sexes/new'
+        url: `http://localhost:3000/${path}/new`
       })
       frame.hideFrameComponent('minimizeButton');
       frame.hideFrameComponent('zoomButton');
@@ -201,6 +201,12 @@ function sexCreateWindow() {
 
 if (location.pathname.match("/sexes")) {
   window.addEventListener("load", () => {
-    sexCreateWindow();
+    CreateWindow("sexes");
+  });
+};
+
+if (location.pathname.match("/areas")) {
+  window.addEventListener("load", () => {
+    CreateWindow("areas");
   });
 };
