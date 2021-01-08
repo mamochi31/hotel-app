@@ -1,0 +1,37 @@
+<div class="head">地域</div>
+<div class="main">
+  <button class="create_button" id="create_button">新規作成</button>
+  <%= search_form_for @q, url: areas_search_path do |f| %>
+    <div class="area_search_form">
+      <%= f.label :code_cont, 'コード', class: "title" %>
+      <%= f.search_field :code_cont, class: "area_code_form", maxlength:"4" %>
+      <%= f.label :name_cont, '名前', class: "title" %>
+      <%= f.search_field :name_cont, class: "area_name_form" %>
+      <%= f.submit "検索", class: "area_search_btn" %>
+    </div>
+  <% end %>
+  <div class="search_results">
+    <div class="area_column">
+      <div class="column id_column">ID</div>
+      <div class="column code_column">コード</div>
+      <div class="column name_column">名前</div>
+      <div class="column at_column">登録日</div>
+      <div class="column at_column">更新日</div>
+    </div>
+    <div class="results">
+      <% unless @areas == nil %>
+        <% @areas.each do |area| %>
+        <div class="result">
+          <div class="id_column"><%= area.id %></div>
+          <div class="code_column"><%= area.code %></div>
+          <div class="name_column"><%= area.name %></div>
+          <div class="at_column"><%= l area.created_at %></div>
+          <div class="at_column"><%= l area.updated_at %></div>
+        </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="foot">
+</div>

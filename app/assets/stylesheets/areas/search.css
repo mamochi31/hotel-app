@@ -1,0 +1,43 @@
+.area_search_form {
+  display: flex;
+  margin-bottom: 5vh;
+}
+
+.area_code_form {
+  margin-right: 5vw;
+  width: 7vw;
+  text-align: center;
+}
+
+.area_name_form {
+  width: 20vw;
+}
+
+.area_column {
+  display: flex;
+}
+
+.code_column {
+  width: 7vw;
+  border: 1px solid black;
+  height: 5vh;
+  line-height: 5vh;
+}
+
+.create_button {
+  margin-bottom: 2vh;
+  width: 7vw;
+  height: 5vh;
+}
+
+.create_btn {
+  text-align: center;
+}
+
+.area_search_btn {
+  margin: 0 0 0 auto;
+}
+
+.area_result {
+  width: 59vw;
+}

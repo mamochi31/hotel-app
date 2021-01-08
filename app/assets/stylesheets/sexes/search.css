@@ -13,12 +13,6 @@
   width: 20vw;
 }
 
-.sex_all {
-  height: 75vh;
-  border: 1px solid black;
-  overflow: scroll;
-}
-
 .sex_column {
   display: flex;
 }
