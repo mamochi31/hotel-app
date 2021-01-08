@@ -1,5 +1,6 @@
 class SexesController < ApplicationController
   before_action :search_sex, only: [:index, :search]
+  before_action :sex_find, only: [:show, :update, :destroy]
   
   def index
     @sexes = Sex.all
@@ -21,13 +22,19 @@ class SexesController < ApplicationController
   end
 
   def show
-    @sex = Sex.find(params[:id])
   end
 
   def update
-    @sex = Sex.find(params[:id])
     if @sex.update(sex_params)
       redirect_to sex_path(@sex.id)
+    else
+      render :show
+    end
+  end
+
+  def destroy
+    if @sex.destroy
+      render template: 'success'
     else
       render :show
     end
@@ -41,6 +48,10 @@ class SexesController < ApplicationController
 
   def sex_params
     params.require(:sex).permit(:code, :name)
+  end
+
+  def sex_find
+    @sex = Sex.find(params[:id])
   end
 
   def search_sex

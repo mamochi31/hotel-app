@@ -16,4 +16,6 @@
     </div>
   <% end %>
 </div>
-<div class="foot"></div>
+<div class="mini_foot">
+  <%= button_to "削除", sex_path(@sex.id), method: :delete, class: "mini_delete_button" %>
+</div>
