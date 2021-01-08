@@ -1,5 +1,6 @@
 <div class="head">性別</div>
 <div class="main">
+  <button class="create_button" id="create_button">新規作成</button>
   <%= search_form_for @q, url: sexes_search_path do |f| %>
     <div class="sex_search_form">
       <%= f.label :code_cont, 'コード', class: "title" %>

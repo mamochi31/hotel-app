@@ -1,4 +1,4 @@
-.sex_create_form {
+.sex_search_form {
   display: flex;
   margin-bottom: 5vh;
 }
@@ -10,11 +10,7 @@
 }
 
 .sex_name_form {
-  width: 40vw;
-}
-
-.create_btn {
-  margin: 0 0 0 auto;
+  width: 20vw;
 }
 
 .sex_all {
@@ -32,4 +28,18 @@
   border: 1px solid black;
   height: 5vh;
   line-height: 5vh;
+}
+
+.create_button {
+  margin-bottom: 2vh;
+  width: 7vw;
+  height: 5vh;
+}
+
+.create_btn {
+  text-align: center;
+}
+
+.sex_search_btn {
+  margin: 0 0 0 auto;
 }

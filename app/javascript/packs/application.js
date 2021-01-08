@@ -13,6 +13,7 @@ require("../code")
 require("../date")
 require("../plan")
 require("../search")
+require("../code_show")
 
 
 

@@ -1,0 +1,56 @@
+.mini_head {
+  height: 15vh;
+  width: 20vw;
+  font-size: 4vh;
+  font-size: 4vw;
+  background-color: darkblue;
+  color: white;
+  text-align: center;
+  line-height: 15vh;
+  margin: 4vh 0 4vh 2vw;
+}
+
+.mini_main {
+  background-color: white;
+  margin: 4vh 2vw;
+  line-height: 13vh;
+  height: 70vh;
+  position: relative;
+}
+
+.mini_form {
+  display: flex;
+}
+
+.mini_submit {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+}
+
+.mini_title {
+  height: 13vh;
+  width: 15vw;
+  border: 1px solid black;
+  text-align: center;
+  background-color: lightblue;
+}
+
+.mini_code_form, .mini_name_form {
+  height: 13vh;
+  text-align: center;
+  display: inline;
+}
+
+.mini_code_form {
+  width: 15vw;
+}
+
+.mini_name_form {
+  width: 50vw;
+}
+
+.mini_create_btn {
+  height: 13vh;
+  width: 10vw;
+}
