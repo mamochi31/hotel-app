@@ -49,3 +49,9 @@ if (location.pathname == "/areas" || location.pathname.match("/areas/search")) {
     CodeShow(5, "areas");
   });
 };
+
+if (location.pathname == "/ranks" || location.pathname.match("/ranks/search")) {
+  window.addEventListener("load", () => {
+    CodeShow(5, "ranks");
+  });
+};
