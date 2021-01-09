@@ -22,7 +22,7 @@
     <div class="results">
       <% unless @plans == nil %>
         <% @plans.each do |plan| %>
-          <div class="result">
+          <div class="result plan_result">
             <div class="id_column"><%= plan.id %></div>
             <div class="code_column"><%= plan.code %></div>
             <div class="plan_name_column text_left"><%= plan.name %></div>

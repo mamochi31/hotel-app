@@ -1,4 +1,4 @@
-<div class="mini_head">プラン作成</div>
+<div class="mini_head">詳細</div>
 <div class="mini_main">
   <%= form_with(model: @plan, local: true, class:"mini_new_form") do |f| %>
     <div class="mini_create_form">
@@ -15,9 +15,11 @@
         <%= f.text_field :price, class: "mini_price_form" %>
       </div>
       <div class="mini_submit">
-        <%= f.submit "作成", class: "mini_create_btn", id: "mini_create_btn" %>
+        <%= f.submit "更新", class: "mini_create_btn", id: "mini_create_btn" %>
       </div>
     </div>
   <% end %>
 </div>
-<div class="foot"></div>
+<div class="mini_foot">
+  <%= button_to "削除", plan_path(@plan.id), method: :delete, class: "mini_delete_button" %>
+</div>
