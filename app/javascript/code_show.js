@@ -67,3 +67,9 @@ if (location.pathname == "/plans" || location.pathname.match("/plans/search")) {
     CodeShow(6, "plans");
   });
 };
+
+if (location.pathname == "/room_types" || location.pathname.match("/room_types/search")) {
+  window.addEventListener("load", () => {
+    CodeShow(6, "room_types");
+  });
+};
