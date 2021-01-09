@@ -2,31 +2,31 @@
 <div class="main">
   <button class="create_button" id="create_button">新規作成</button>
   <%= search_form_for @q, url: sexes_search_path do |f| %>
-    <div class="sex_search_form">
+    <div class="code_search_form">
       <%= f.label :code_cont, 'コード', class: "title" %>
-      <%= f.search_field :code_cont, class: "sex_code_form", maxlength:"1" %>
+      <%= f.search_field :code_cont, class: "code_form", maxlength:"1" %>
       <%= f.label :name_cont, '名前', class: "title" %>
-      <%= f.search_field :name_cont, class: "sex_name_form" %>
-      <%= f.submit "検索", class: "sex_search_btn" %>
+      <%= f.search_field :name_cont, class: "w20vw" %>
+      <%= f.submit "検索", class: "contents_right" %>
     </div>
   <% end %>
   <div class="search_results">
-    <div class="sex_column">
-      <div class="column id_column">ID</div>
-      <div class="column code_column">コード</div>
-      <div class="column name_column">名前</div>
-      <div class="column at_column">登録日</div>
-      <div class="column at_column">更新日</div>
+    <div class="flex">
+      <div class="column w4vw">ID</div>
+      <div class="column w6vw">コード</div>
+      <div class="column w20vw">名前</div>
+      <div class="column w15vw">登録日</div>
+      <div class="column w15vw">更新日</div>
     </div>
     <div class="results">
       <% unless @sexes == nil %>
         <% @sexes.each do |sex| %>
-          <div class="result sex_result">
-            <div class="id_column"><%= sex.id %></div>
-            <div class="code_column"><%= sex.code %></div>
-            <div class="name_column"><%= sex.name %></div>
-            <div class="at_column"><%= l sex.created_at %></div>
-            <div class="at_column"><%= l sex.updated_at %></div>
+          <div class="result w60vw">
+            <div class="columns w4vw"><%= sex.id %></div>
+            <div class="columns w6vw"><%= sex.code %></div>
+            <div class="columns w20vw"><%= sex.name %></div>
+            <div class="columns w15vw"><%= l sex.created_at %></div>
+            <div class="columns w15vw"><%= l sex.updated_at %></div>
             <%= content_tag(:div, "", class: "show_link", id: sex.id) %>
           </div>
         <% end %>

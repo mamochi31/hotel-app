@@ -1,0 +1,150 @@
+* {
+  box-sizing: border-box;
+  font-size: 1vw;
+}
+
+body {
+  background-color: white;
+}
+
+input {
+  resize: none;
+  height: 5vh;
+  width: 5vw;
+}
+
+.head {
+  height: 7vh;
+  width: 14vw;
+  font-size: 2vw;
+  background-color: darkblue;
+  color: white;
+  text-align: center;
+  line-height: 7vh;
+  margin: 2vh 0 2vh 1vw;
+}
+
+.main {
+  height: calc(100vh - 17vh);
+  background-color: white;
+  margin: 2vh 1vw;
+  line-height: 5vh;
+}
+
+.foot {
+  position: absolute;
+  top: 93vh;
+  display: flex;
+}
+
+.required {
+  background-color: lightyellow;
+}
+
+.prohibited {
+  height: 5vh;
+  background-color: lightgray;
+  border: 1px solid black;
+}
+
+.title {
+  height: 5vh;
+  width: 7vw;
+  border: 1px solid black;
+  text-align: center;
+  background-color: lightblue;
+}
+
+.create_button {
+  margin-bottom: 2vh;
+  width: 7vw;
+  height: 5vh;
+}
+
+.text_left {
+  text-align: left;
+}
+
+.text_right {
+  text-align: right;
+}
+
+.text_center {
+  text-align: center;
+}
+
+.flex {
+  display: flex;
+}
+
+.position_r {
+  position: relative;
+}
+
+.contents_right {
+  margin: 0 0 0 auto;
+}
+
+.w4vw {
+  width: 4vw;
+}
+
+.w5vw {
+  width: 5vw;
+}
+
+.w6vw {
+  width: 6vw;
+}
+
+.w10vw {
+  width: 10vw;
+}
+
+.w15vw {
+  width: 15vw;
+}
+
+.w20vw {
+  width: 20vw;
+}
+
+.w25vw {
+  width: 25vw;
+}
+
+.w30vw {
+  width: 30vw;
+}
+
+.w40vw {
+  width: 40vw;
+}
+
+.w50vw {
+  width: 50vw;
+}
+
+.w60vw {
+  width: 60vw;
+}
+
+.w85vw {
+  width: 85vw;
+}
+
+.w90vw {
+  width: 90vw;
+}
+
+.margin_t_2vh {
+  margin-top: 2vh;
+}
+
+.margin_r_5vw {
+  margin-right: 5vw;
+}
+
+.left13 {
+  left: 13vw;
+}

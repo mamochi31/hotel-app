@@ -2,13 +2,13 @@
 <div class="mini_main">
   <%= form_with(model: @tag, local: true, class:"mini_new_form") do |f| %>
     <div class="mini_create_form">
-      <div class="mini_form">
+      <div class="flex">
         <div class="mini_title">コード</div>
-        <%= f.text_field :code, class: "mini_code_form", maxlength:"5" %>
+        <%= f.text_field :code, class: "mini_form w15vw", maxlength:"5" %>
       </div>
-      <div class="mini_form">
+      <div class="flex">
         <div class="mini_title">名前</div>
-        <%= f.text_field :name, class: "mini_name_form" %>
+        <%= f.text_field :name, class: "mini_form w50vw" %>
       </div>
       <div class="mini_submit">
         <%= f.submit "更新", class: "mini_create_btn", id: "mini_create_btn" %>

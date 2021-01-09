@@ -3,30 +3,19 @@
   border: black;
 }
 
-.search_form_head, .search_form_body, .results_column, .result {
+.code_search_form {
   display: flex;
+  margin-bottom: 5vh;
+  width: 100%;
 }
 
-.name_search {
-  width: 20vw;
-}
-
-.date_search {
-  width: 20vw;
+.code_form {
   margin-right: 5vw;
-}
-
-.plan_search, .room_type_search {
   width: 7vw;
   text-align: center;
 }
 
-.plan_search {
-  margin-right: 5vw;
-}
-
 .search_btn {
-  margin-top: 2vh;
   margin-left: 93vw;
 }
 
@@ -39,31 +28,12 @@
 .column {
   text-align: center;
   background-color: lightblue;
-}
-
-.id_column {
-  width: 4vw;
   border: 1px solid black;
   height: 5vh;
   line-height: 5vh;
 }
 
-.name_column {
-  width: 17vw;
-  border: 1px solid black;
-  height: 5vh;
-  line-height: 5vh;
-}
-
-.night_column, .number_room_column, .people_column {
-  width: 5vw;
-  border: 1px solid black;
-  height: 5vh;
-  line-height: 5vh;
-}
-
-.date_column, .at_column {
-  width: 16vw;
+.columns {
   border: 1px solid black;
   height: 5vh;
   line-height: 5vh;
@@ -72,6 +42,7 @@
 .result {
   text-align: center;
   position: relative;
+  display: flex;
 }
 
 .show_link {

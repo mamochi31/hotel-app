@@ -2,33 +2,33 @@
 <div class="main">
   <button class="create_button" id="create_button">新規作成</button>
   <%= search_form_for @q, url: room_types_search_path, class: "room_types_search_form" do |f| %>
-    <div class="room_types_search_form">
+    <div class="code_search_form">
       <%= f.label :code_cont, 'コード', class: "title" %>
-      <%= f.search_field :code_cont, class: "room_type_code_form", maxlength:"5" %>
+      <%= f.search_field :code_cont, class: "code_form", maxlength:"5" %>
       <%= f.label :name_cont, '名前', class: "title" %>
-      <%= f.search_field :name_cont, class: "room_type_name_form" %>
-      <%= f.submit "検索", class: "room_type_search_btn" %>
+      <%= f.search_field :name_cont, class: "w40vw" %>
+      <%= f.submit "検索", class: "contents_right" %>
     </div>
   <% end %>
   <div class="search_results">
-    <div class="room_type_column">
-      <div class="column id_column">ID</div>
-      <div class="column code_column">コード</div>
-      <div class="column name_column">名前</div>
-      <div class="column capacity_column">定員</div>
-      <div class="column at_column">登録日</div>
-      <div class="column at_column">更新日</div>
+    <div class="flex">
+      <div class="column w4vw">ID</div>
+      <div class="column w6vw">コード</div>
+      <div class="column w40vw">名前</div>
+      <div class="column w5vw">定員</div>
+      <div class="column w15vw">登録日</div>
+      <div class="column w15vw">更新日</div>
     </div>
     <div class="results">
       <% unless @room_types == nil %>
         <% @room_types.each do |room_type| %>
-          <div class="result room_type_result">
-            <div class="id_column"><%= room_type.id %></div>
-            <div class="code_column"><%= room_type.code %></div>
-            <div class="name_column"><%= room_type.name %></div>
-            <div class="capacity_column"><%= room_type.capacity %></div>
-            <div class="at_column"><%= l room_type.created_at %></div>
-            <div class="at_column"><%= l room_type.updated_at %></div>
+          <div class="result w85vw">
+            <div class="columns w4vw"><%= room_type.id %></div>
+            <div class="columns w6vw"><%= room_type.code %></div>
+            <div class="columns w40vw"><%= room_type.name %></div>
+            <div class="columns w5vw"><%= room_type.capacity %></div>
+            <div class="columns w15vw"><%= l room_type.created_at %></div>
+            <div class="columns w15vw"><%= l room_type.updated_at %></div>
             <%= content_tag(:div, "", class: "show_link", id: room_type.id) %>
           </div>
         <% end %>
