@@ -222,3 +222,9 @@ if (location.pathname.match("/tags")) {
     CreateWindow("tags");
   });
 };
+
+if (location.pathname.match("/plans")) {
+  window.addEventListener("load", () => {
+    CreateWindow("plans");
+  });
+};
