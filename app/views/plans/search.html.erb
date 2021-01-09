@@ -1,0 +1,40 @@
+<div class="head">プラン</div>
+<div class="main">
+  <button class="create_button" id="create_button">新規作成</button>
+  <%= search_form_for @q, url: plans_search_path, class: "plans_search_form" do |f| %>
+    <div class="plans_search_form">
+      <%= f.label :code_cont, 'コード', class: "title" %>
+      <%= f.search_field :code_cont, class: "plan_code_form", maxlength:"5" %>
+      <%= f.label :name_cont, '名前', class: "title" %>
+      <%= f.search_field :name_cont, class: "plan_name_form" %>
+      <%= f.submit "検索", class: "plan_search_btn" %>
+    </div>
+  <% end %>
+  <div class="search_results">
+    <div class="plan_column">
+      <div class="column id_column">ID</div>
+      <div class="column code_column">コード</div>
+      <div class="column plan_name_column">名前</div>
+      <div class="column price_column">単価</div>
+      <div class="column at_column">登録日</div>
+      <div class="column at_column">更新日</div>
+    </div>
+    <div class="results">
+      <% unless @plans == nil %>
+        <% @plans.each do |plan| %>
+          <div class="result plan_result">
+            <div class="id_column"><%= plan.id %></div>
+            <div class="code_column"><%= plan.code %></div>
+            <div class="plan_name_column text_left"><%= plan.name %></div>
+            <div class="price_column"><%= "#{plan.price}円" %></div>
+            <div class="at_column"><%= l plan.created_at %></div>
+            <div class="at_column"><%= l plan.updated_at %></div>
+            <%= content_tag(:div, "", class: "show_link", id: plan.id) %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div class="foot">
+</div>

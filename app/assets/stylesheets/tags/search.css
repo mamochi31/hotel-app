@@ -1,0 +1,36 @@
+.tag_search_form {
+  display: flex;
+  margin-bottom: 5vh;
+}
+
+.tag_code_form {
+  margin-right: 5vw;
+  width: 7vw;
+  text-align: center;
+}
+
+.tag_name_form {
+  width: 20vw;
+}
+
+.tag_column {
+  display: flex;
+}
+
+.create_button {
+  margin-bottom: 2vh;
+  width: 7vw;
+  height: 5vh;
+}
+
+.create_btn {
+  text-align: center;
+}
+
+.tag_search_btn {
+  margin: 0 0 0 auto;
+}
+
+.tag_result {
+  width: 59vw;
+}
