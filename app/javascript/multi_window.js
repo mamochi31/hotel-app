@@ -228,3 +228,9 @@ if (location.pathname.match("/plans")) {
     CreateWindow("plans");
   });
 };
+
+if (location.pathname.match("/room_types")) {
+  window.addEventListener("load", () => {
+    CreateWindow("room_types");
+  });
+};

@@ -44,10 +44,11 @@
   background-color: lightblue;
 }
 
-.mini_code_form, .mini_name_form, .mini_price_form {
+.mini_code_form, .mini_name_form, .mini_price_form, .mini_capacity_form {
   height: 15vh;
   text-align: center;
   display: inline;
+  min-width: 10vw;
 }
 
 .mini_code_form, .mini_price_form {

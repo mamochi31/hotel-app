@@ -1,0 +1,23 @@
+<div class="mini_head">プラン作成</div>
+<div class="mini_main">
+  <%= form_with(model: @room_type, local: true, class:"mini_new_form") do |f| %>
+    <div class="mini_create_form">
+      <div class="mini_form">
+        <div class="mini_title">コード</div>
+        <%= f.text_field :code, class: "mini_code_form", maxlength:"5" %>
+      </div>
+      <div class="mini_form">
+        <div class="mini_title">名前</div>
+        <%= f.text_field :name, class: "mini_name_form" %>
+      </div>
+      <div class="mini_form">
+        <div class="mini_title">定員</div>
+        <%= f.text_field :capacity, class: "mini_capacity_form" %>
+      </div>
+      <div class="mini_submit">
+        <%= f.submit "作成", class: "mini_create_btn", id: "mini_create_btn" %>
+      </div>
+    </div>
+  <% end %>
+</div>
+<div class="foot"></div>
