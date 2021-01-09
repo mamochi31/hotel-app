@@ -14,7 +14,7 @@ class AreasController < ApplicationController
   def create
     @area = Area.new(area_params)
     if @area.valid?
-      @area.save 
+      @area.save
       redirect_to new_area_path
     else
       render :new

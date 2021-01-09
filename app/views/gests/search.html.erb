@@ -3,49 +3,49 @@
 </header>
 <div class="main">
   <%= search_form_for @q, url: gests_search_path, class: "search_form", id: "search_form" do |f| %>
-    <div class="search_form_head">
+    <div class="flex">
       <%= f.label :name1_kana_cont, '名前', class: "title" %>
-      <%= f.search_field :name1_kana_cont, placeholder: "カタカナで入力", class: "name_search" %>
+      <%= f.search_field :name1_kana_cont, placeholder: "カタカナで入力", class: "w20vw" %>
     </div>
-    <div class="search_form_body">
+    <div class="flex">
       <%= f.label :arr_date_eq, '到着日', class: "title" %>
-      <%= f.date_field :arr_date_eq, class: "date_search" %>
+      <%= f.date_field :arr_date_eq, class: "margin_r_5vw w20vw" %>
       <%= f.label :plan_code_eq, 'プラン', class: "title" %>
-      <%= f.search_field :plan_code_eq, class: "plan_search", id: "plan_form" %>
+      <%= f.search_field :plan_code_eq, class: "margin_r_5vw w10vw text_center", id: "plan_form" %>
       <div class="code_search_result plan_search_result" id="plan_search_result" style="left: 47vw;"></div>
       <%= f.label :room_type_code_eq, '部屋タイプ', class: "title" %>
-      <%= f.search_field :room_type_code_eq, class: "room_type_search", id: "room_type_form" %>
+      <%= f.search_field :room_type_code_eq, class: "w10vw text_center", id: "room_type_form" %>
       <div class="code_search_result room_type_search_result" id="room_type_search_result" style="left: 66vw;"></div>
     </div>
     <div class="search_form_foot">
-      <%= f.submit "検索", class: "search_btn", id: "submit" %>
+      <%= f.submit "検索", class: "search_btn margin_t_2vh", id: "submit" %>
     </div>
   <% end %>
   <div class="search_results">
-    <div class="results_column">
-      <div class="column id_column">ID</div>
-      <div class="column name_column">名前</div>
-      <div class="column date_column">到着日</div>
-      <div class="column night_column">泊数</div>
-      <div class="column date_column">出発日</div>
-      <div class="column people_column">人数</div>
-      <div class="column number_room_column">室数</div>
-      <div class="column at_column">登録日</div>
-      <div class="column at_column">更新日</div>
+    <div class="flex">
+      <div class="column w4vw">ID</div>
+      <div class="column w20vw">名前</div>
+      <div class="column w15vw">到着日</div>
+      <div class="column w5vw">泊数</div>
+      <div class="column w15vw">出発日</div>
+      <div class="column w5vw">人数</div>
+      <div class="column w5vw">室数</div>
+      <div class="column w15vw">登録日</div>
+      <div class="column w15vw">更新日</div>
     </div>
     <div class="results">
       <% unless @gests == nil %>
         <% @gests.each do |gest| %>
           <div class="result" id="result">
-            <div class="id_column"><%= gest.id %></div>
-            <div class="name_column"><%= gest.name1_kana %></div>
-            <div class="date_column"><%= gest.arr_date %></div>
-            <div class="night_column"><%= gest.night %></div>
-            <div class="date_column"><%= gest.dep_date %></div>
-            <div class="people_column"><%= gest.adult + gest.child + gest.baby %></div>
-            <div class="number_room_column"><%= gest.number_of_room %></div>
-            <div class="at_column"><%= l gest.created_at %></div>
-            <div class="at_column"><%= l gest.updated_at %></div>
+            <div class="columns w4vw"><%= gest.id %></div>
+            <div class="columns w20vw"><%= gest.name1_kana %></div>
+            <div class="columns w15vw"><%= gest.arr_date %></div>
+            <div class="columns w5vw"><%= gest.night %></div>
+            <div class="columns w15vw"><%= gest.dep_date %></div>
+            <div class="columns w5vw"><%= gest.adult + gest.child + gest.baby %></div>
+            <div class="columns w5vw"><%= gest.number_of_room %></div>
+            <div class="columns w15vw"><%= l gest.created_at %></div>
+            <div class="columns w15vw"><%= l gest.updated_at %></div>
             <%= content_tag(:div, "", class: "show_link", id: gest.id) %>
           </div>
         <% end %>

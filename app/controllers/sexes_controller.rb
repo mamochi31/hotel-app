@@ -1,7 +1,7 @@
 class SexesController < ApplicationController
   before_action :search_sex, only: [:index, :search]
   before_action :sex_find, only: [:show, :update, :destroy]
-  
+
   def index
     @sexes = Sex.all
     render template: 'sexes/search'
@@ -13,12 +13,12 @@ class SexesController < ApplicationController
 
   def create
     @sex = Sex.new(sex_params)
-   if @sex.valid?
-    @sex.save
-    redirect_to new_sex_path
-   else
-    render :new
-   end
+    if @sex.valid?
+      @sex.save
+      redirect_to new_sex_path
+    else
+      render :new
+    end
   end
 
   def show

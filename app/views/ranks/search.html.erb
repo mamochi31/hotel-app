@@ -2,31 +2,31 @@
 <div class="main">
   <button class="create_button" id="create_button">新規作成</button>
   <%= search_form_for @q, url: ranks_search_path do |f| %>
-    <div class="rank_search_form">
+    <div class="code_search_form">
       <%= f.label :code_cont, 'コード', class: "title" %>
-      <%= f.search_field :code_cont, class: "rank_code_form", maxlength:"4" %>
+      <%= f.search_field :code_cont, class: "code_form", maxlength:"4" %>
       <%= f.label :name_cont, '名前', class: "title" %>
-      <%= f.search_field :name_cont, class: "rank_name_form" %>
-      <%= f.submit "検索", class: "rank_search_btn" %>
+      <%= f.search_field :name_cont, class: "w20vw" %>
+      <%= f.submit "検索", class: "contents_right" %>
     </div>
   <% end %>
   <div class="search_results">
-    <div class="rank_column">
-      <div class="column id_column">ID</div>
-      <div class="column code_column">コード</div>
-      <div class="column name_column">名前</div>
-      <div class="column at_column">登録日</div>
-      <div class="column at_column">更新日</div>
+    <div class="flex">
+      <div class="column w4vw">ID</div>
+      <div class="column w6vw">コード</div>
+      <div class="column w20vw">名前</div>
+      <div class="column w15vw">登録日</div>
+      <div class="column w15vw">更新日</div>
     </div>
     <div class="results">
       <% unless @ranks == nil %>
         <% @ranks.each do |rank| %>
-          <div class="result rank_result">
-            <div class="id_column"><%= rank.id %></div>
-            <div class="code_column"><%= rank.code %></div>
-            <div class="name_column"><%= rank.name %></div>
-            <div class="at_column"><%= l rank.created_at %></div>
-            <div class="at_column"><%= l rank.updated_at %></div>
+          <div class="result w60vw">
+            <div class="columns w4vw"><%= rank.id %></div>
+            <div class="columns w6vw"><%= rank.code %></div>
+            <div class="columns w20vw"><%= rank.name %></div>
+            <div class="columns w15vw"><%= l rank.created_at %></div>
+            <div class="columns w15vw"><%= l rank.updated_at %></div>
             <%= content_tag(:div, "", class: "show_link", id: rank.id) %>
           </div>
         <% end %>

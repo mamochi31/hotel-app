@@ -14,13 +14,11 @@ class GestsController < ApplicationController
   def create
     change_num
     @gest = Gest.new(gest_params_new)
-    if @gest.valid?
-      @gest.save
-      gest_tags_save
-      redirect_to gest_path(@gest.id)
-    else
-      return
-    end
+    return unless @gest.valid?
+
+    @gest.save
+    gest_tags_save
+    redirect_to gest_path(@gest.id)
   end
 
   def show
@@ -34,12 +32,10 @@ class GestsController < ApplicationController
 
   def update
     change_num
-    if @gest.update(gest_params_edit)
-      gest_tags_update
-      redirect_to gest_path(@gest.id)
-    else
-      return
-    end
+    return unless @gest.update(gest_params_edit)
+
+    gest_tags_update
+    redirect_to gest_path(@gest.id)
   end
 
   def destroy
@@ -56,68 +52,74 @@ class GestsController < ApplicationController
   end
 
   def code_search_sex
-    return nil if params[:sexKeyword] == ""
-    if params[:sexKeyword] == "@"
-      sex = Sex.all
-    else
-      sex = Sex.where( ['code LIKE ?', "%#{params[:sexKeyword]}%"] )
-    end
-    render json:{ sexKeyword: sex }
+    return nil if params[:sexKeyword] == ''
+
+    sex = if params[:sexKeyword] == '@'
+            Sex.all
+          else
+            Sex.where(['code LIKE ?', "%#{params[:sexKeyword]}%"])
+          end
+    render json: { sexKeyword: sex }
   end
 
   def code_search_rank
-    return nil if params[:rankKeyword] == ""
-    if params[:rankKeyword] == "@"
-      rank = Rank.all
-    else
-      rank = Rank.where( ['code LIKE ?', "%#{params[:rankKeyword]}%"] )
-    end
-    render json:{ rankKeyword: rank }
+    return nil if params[:rankKeyword] == ''
+
+    rank = if params[:rankKeyword] == '@'
+             Rank.all
+           else
+             Rank.where(['code LIKE ?', "%#{params[:rankKeyword]}%"])
+           end
+    render json: { rankKeyword: rank }
   end
 
   def code_search_room_type
-    return nil if params[:roomTypeKeyword] == ""
-    if params[:roomTypeKeyword] == "@"
-      room_type = RoomType.all
-    else
-      room_type = RoomType.where( ['code LIKE ?', "%#{params[:roomTypeKeyword]}%"] )
-    end
-    render json:{ roomTypeKeyword: room_type }
+    return nil if params[:roomTypeKeyword] == ''
+
+    room_type = if params[:roomTypeKeyword] == '@'
+                  RoomType.all
+                else
+                  RoomType.where(['code LIKE ?', "%#{params[:roomTypeKeyword]}%"])
+                end
+    render json: { roomTypeKeyword: room_type }
   end
 
   def code_search_area
-    return nil if params[:areaKeyword] == ""
-    if params[:areaKeyword] == "@"
-      area = Area.all
-    else
-      area = Area.where( ['code LIKE ?', "%#{params[:areaKeyword]}%"] )
-    end
-    render json:{ areaKeyword: area }
+    return nil if params[:areaKeyword] == ''
+
+    area = if params[:areaKeyword] == '@'
+             Area.all
+           else
+             Area.where(['code LIKE ?', "%#{params[:areaKeyword]}%"])
+           end
+    render json: { areaKeyword: area }
   end
 
   def code_search_tag
-    return nil if params[:tagKeyword] == ""
-    if params[:tagKeyword] == "@"
-      tag = Tag.all
-    else
-      tag = Tag.where( ['code LIKE ?', "%#{params[:tagKeyword]}%"] )
-    end
-    render json:{ tagKeyword: tag }
+    return nil if params[:tagKeyword] == ''
+
+    tag = if params[:tagKeyword] == '@'
+            Tag.all
+          else
+            Tag.where(['code LIKE ?', "%#{params[:tagKeyword]}%"])
+          end
+    render json: { tagKeyword: tag }
   end
 
   def code_search_plan
-    return nil if params[:planKeyword] == ""
-    if params[:planKeyword] == "@"
-      plan = Plan.all
-    else
-      plan = Plan.where( ['code LIKE ?', "%#{params[:planKeyword]}%"] )
-    end
-    render json:{ planKeyword: plan }
+    return nil if params[:planKeyword] == ''
+
+    plan = if params[:planKeyword] == '@'
+             Plan.all
+           else
+             Plan.where(['code LIKE ?', "%#{params[:planKeyword]}%"])
+           end
+    render json: { planKeyword: plan }
   end
 
   def show_plan
-    plan = Plan.find_by(code: "#{params[:planCode]}")
-    render json:{ planCode: plan }
+    plan = Plan.find_by(code: params[:planCode].to_s)
+    render json: { planCode: plan }
   end
 
   private
