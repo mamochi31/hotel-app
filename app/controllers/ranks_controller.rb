@@ -14,7 +14,7 @@ class RanksController < ApplicationController
   def create
     @rank = Rank.new(rank_params)
     if @rank.valid?
-      @rank.save 
+      @rank.save
       redirect_to new_rank_path
     else
       render :new
