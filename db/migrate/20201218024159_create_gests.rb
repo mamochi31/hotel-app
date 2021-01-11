@@ -22,7 +22,6 @@ class CreateGests < ActiveRecord::Migration[6.0]
       t.integer    :baby
       t.integer    :number_of_room, null: false
       t.integer    :update_user_id
-      # t.integer :room
       t.references :user,      null: false, foreign_key: true
       t.timestamps
     end
