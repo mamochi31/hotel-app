@@ -16,7 +16,7 @@ function showWindowCreate() {
         });
         result.addEventListener("dblclick", (e) => {
           const gestId = result.children[9].getAttribute("id")
-          location.href = `http://localhost:3000/gests/${gestId}`;
+          location.href = `/gests/${gestId}`;
         });
       });
     };
