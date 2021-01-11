@@ -18,7 +18,7 @@ function multiWindowOpen() {
       style: {
         backgroundColor: 'rgba(220,220,220,0.8)',
       },
-      url: 'http://localhost:3000/gests/new'
+      url: '/gests/new'
     })
     frame.hideFrameComponent('minimizeButton');
     frame.hideFrameComponent('zoomButton');
@@ -39,7 +39,7 @@ function multiWindowOpen() {
       style: {
         backgroundColor: 'rgba(220,220,220,0.8)',
       },
-      url: 'http://localhost:3000/gests/search/index'
+      url: '/gests/search/index'
     })
     frameGestSearch.hideFrameComponent('minimizeButton');
     frameGestSearch.hideFrameComponent('zoomButton');
@@ -59,7 +59,7 @@ function multiWindowOpen() {
       style: {
         backgroundColor: 'rgba(220,220,220,0.8)',
       },
-      url: 'http://localhost:3000/sexes'
+      url: '/sexes'
     })
     frame.hideFrameComponent('minimizeButton');
     frame.hideFrameComponent('zoomButton');
@@ -79,7 +79,7 @@ function multiWindowOpen() {
       style: {
         backgroundColor: 'rgba(220,220,220,0.8)',
       },
-      url: 'http://localhost:3000/ranks'
+      url: '/ranks'
     })
     frame.hideFrameComponent('minimizeButton');
     frame.hideFrameComponent('zoomButton');
@@ -99,7 +99,7 @@ function multiWindowOpen() {
       style: {
         backgroundColor: 'rgba(220,220,220,0.8)',
       },
-      url: 'http://localhost:3000/room_types'
+      url: '/room_types'
     })
     frame.hideFrameComponent('minimizeButton');
     frame.hideFrameComponent('zoomButton');
@@ -119,7 +119,7 @@ function multiWindowOpen() {
       style: {
         backgroundColor: 'rgba(220,220,220,0.8)',
       },
-      url: 'http://localhost:3000/plans'
+      url: '/plans'
     })
     frame.hideFrameComponent('minimizeButton');
     frame.hideFrameComponent('zoomButton');
@@ -139,7 +139,7 @@ function multiWindowOpen() {
       style: {
         backgroundColor: 'rgba(220,220,220,0.8)',
       },
-      url: 'http://localhost:3000/tags'
+      url: '/tags'
     })
     frame.hideFrameComponent('minimizeButton');
     frame.hideFrameComponent('zoomButton');
@@ -159,7 +159,7 @@ function multiWindowOpen() {
       style: {
         backgroundColor: 'rgba(220,220,220,0.8)',
       },
-      url: 'http://localhost:3000/areas'
+      url: '/areas'
     })
     frame.hideFrameComponent('minimizeButton');
     frame.hideFrameComponent('zoomButton');
@@ -189,7 +189,7 @@ function CreateWindow(path) {
         style: {
           backgroundColor: 'rgba(220,220,220,0.8)',
         },
-        url: `http://localhost:3000/${path}/new`
+        url: `/${path}/new`
       })
       frame.hideFrameComponent('minimizeButton');
       frame.hideFrameComponent('zoomButton');
