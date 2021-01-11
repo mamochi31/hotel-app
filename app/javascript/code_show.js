@@ -27,7 +27,7 @@ function CodeShow(n, path) {
           style: {
             backgroundColor: 'rgba(220,220,220,0.8)',
           },
-          url: `http://localhost:3000/${path}/${id}`
+          url: `/${path}/${id}`
         })
         frame.hideFrameComponent('minimizeButton');
         frame.hideFrameComponent('zoomButton');
