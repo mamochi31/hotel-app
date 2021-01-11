@@ -66,3 +66,6 @@ gem 'active_hash'
 
 # 検索機能
 gem 'ransack'
+
+# N+1問題の検出
+gem 'bullet'
