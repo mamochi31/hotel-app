@@ -48,7 +48,12 @@ class GestsController < ApplicationController
   end
 
   def search
-    @gests = @q.result
+    q = params[:q]
+    if q[:name1_kana_cont] == "" && q[:arr_date_eq] == "" && q[:plan_code_eq] == "" && q[:room_type_code_eq] == ""
+      @gests = Gest.all
+    else
+      @gests = @q.result
+    end
   end
 
   def code_search_sex
