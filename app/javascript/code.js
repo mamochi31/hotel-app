@@ -192,7 +192,7 @@ function tagSearch(i) {
 // プランフォームに入力があった際に予測変換を表示する処理
 function planSearch() {
   const inputPlanForm = document.getElementById("plan_form");
-  inputPlanForm.addEventListener("keyup", () => {
+  inputPlanForm.addEventListener("input", () => {
     const planKeyword = document.getElementById("plan_form").value;
     
     const planXHR = new XMLHttpRequest();
@@ -235,7 +235,7 @@ function planSearch() {
 
 const regexShowURL = /gests(?=\/\d)/;
 if (location.pathname.match("gests/new") || location.pathname.match(regexShowURL)) {
-  document.addEventListener("click", () => {
+  window.addEventListener("load", () => {
     sexSearch();
     rankSearch();
     roomTypeSearch();
@@ -246,7 +246,7 @@ if (location.pathname.match("gests/new") || location.pathname.match(regexShowURL
 };
 
 if (location.pathname == "/gests/search"){
-  document.addEventListener("DOMContentLoaded", () => {
+  window.addEventListener("load", () => {
     roomTypeSearch();
     planSearch();
   });

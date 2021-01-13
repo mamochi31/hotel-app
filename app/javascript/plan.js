@@ -42,7 +42,7 @@ function planShowDisplay () {
 // 予約登録画面と予約詳細画面のみで処理を実行
 const regexShowURL = /gests(?=\/\d)/;
 if (location.pathname.match("gests/new") || location.pathname.match(regexShowURL)) {
-  document.addEventListener("click", () => {
+  window.addEventListener("load", () => {
     planShowDisplay();
   });
 };
