@@ -6,6 +6,7 @@ function sexSearch() {
   inputSexForm.addEventListener("keyup", () => {
     // 入力された文字列を取得
     const sexKeyword = document.getElementById("sex_form").value;
+
     // 取得した文字列を元に非同期通信でコードを検索
     const sexXHR = new XMLHttpRequest();
     sexXHR.open("GET", `/gests/code/search/sex/?sexKeyword=${sexKeyword}`, true);
@@ -16,6 +17,9 @@ function sexSearch() {
       const sexSearchResult = document.getElementById("sex_search_result");
       // 文字列が変わるたびに前回の検索結果をリセット
       sexSearchResult.innerHTML = "";
+      // 挿入するためのhtml変数を定義
+      let html = "";
+
       // レスポンスデータがある場合に処理を実行
       if (sexXHR.response) {
         // 返却された配列データを変数に定義
@@ -23,23 +27,22 @@ function sexSearch() {
         // 返却された配列データの変数から取り出し
         sexes.forEach((sex) => {
           // 表示させるための要素を作成
-          const sexChildElement = document.createElement("div");
-          // 作成した要素に属性を追加
-          sexChildElement.setAttribute("class", "code_child");
-          sexChildElement.setAttribute("id", sex.name);
-          // 作成した要素に文字列を挿入
-          sexChildElement.innerHTML = sex.code + "：" + sex.name;
-          // 作成した要素を表示場所に挿入
-          sexSearchResult.appendChild(sexChildElement);
-          // 予測変換をクリックするとクリックしたコードを入力される
-          const clickElement = document.getElementById(sex.name);
-          clickElement.addEventListener("mousedown", () => {
-            document.getElementById("sex_form").value = sex.code;
+          html += `<div class="code_child" id="${sex.name}">` + sex.code + "：" + sex.name + "</div>";
+        });
+        // 作成した要素をブラウザに挿入
+        sexSearchResult.innerHTML = html;
+
+        // 予測変換をクリックするとクリックしたコードを入力される
+        const codeChildren = Array.from(document.getElementsByClassName("code_child"));
+        codeChildren.forEach((codeChild) => {
+          codeChild.addEventListener("mousedown", () => {
+            document.getElementById("sex_form").value = codeChild.innerHTML.split("：")[0];
           });
-          // 入力フォームからフォーカスが外れると予測変換が消えるように設定
-          inputSexForm.addEventListener("blur", () => {
-            sexSearchResult.innerHTML = "";
-          });
+        });
+
+        // 入力フォームからフォーカスが外れると予測変換が消えるように設定
+        inputSexForm.addEventListener("blur", () => {
+          sexSearchResult.innerHTML = "";
         });
       };
     };
@@ -59,24 +62,26 @@ function rankSearch() {
     rankXHR.onload = () => {
       const rankSearchResult = document.getElementById("rank_search_result");
       rankSearchResult.innerHTML = "";
+      let html = "";
+
       if (rankXHR.response) {
         const ranks = rankXHR.response.rankKeyword;
         ranks.forEach((rank) => {
-          const rankChildElement = document.createElement("div");
-          rankChildElement.setAttribute("class", "code_child");
-          rankChildElement.setAttribute("id", rank.name);
-          rankChildElement.innerHTML = rank.code + "：" + rank.name;
-          rankSearchResult.appendChild(rankChildElement);
+          html += `<div class="code_child" id="${rank.name}">` + rank.code + "：" + rank.name + "</div>";
+        });
+        rankSearchResult.innerHTML = html;
 
-          const clickElement = document.getElementById(rank.name);
-          clickElement.addEventListener("mousedown", () => {
-            document.getElementById("rank_form").value = rank.code;
+        const codeChildren = Array.from(document.getElementsByClassName("code_child"));
+        codeChildren.forEach((codeChild) => {
+          codeChild.addEventListener("mousedown", () => {
+            document.getElementById("rank_form").value = codeChild.innerHTML.split("：")[0];
           });
         });
+
+        inputRankForm.addEventListener("blur", () => {
+          rankSearchResult.innerHTML = "";
+        });
       };
-      inputRankForm.addEventListener("blur", () => {
-        rankSearchResult.innerHTML = "";
-      });
     };
   });
 };
@@ -94,24 +99,26 @@ function roomTypeSearch() {
     roomTypeXHR.onload = () => {
       const roomTypeSearchResult = document.getElementById("room_type_search_result");
       roomTypeSearchResult.innerHTML = "";
+      let html = "";
+
       if (roomTypeXHR.response) {
         const roomTypes = roomTypeXHR.response.roomTypeKeyword;
         roomTypes.forEach((roomType) => {
-          const roomTypeChildElement = document.createElement("div");
-          roomTypeChildElement.setAttribute("class", "code_child");
-          roomTypeChildElement.setAttribute("id", roomType.name);
-          roomTypeChildElement.innerHTML = roomType.code + "：" + roomType.name;
-          roomTypeSearchResult.appendChild(roomTypeChildElement);
+          html += `<div class="code_child" id="${roomType.name}">` + roomType.code + "：" + roomType.name + "</div>";
+        });
+        roomTypeSearchResult.innerHTML = html;
 
-          const clickElement = document.getElementById(roomType.name);
-          clickElement.addEventListener("mousedown", () => {
-            document.getElementById("room_type_form").value = roomType.code;
+        const codeChildren = Array.from(document.getElementsByClassName("code_child"));
+        codeChildren.forEach((codeChild) => {
+          codeChild.addEventListener("mousedown", () => {
+            document.getElementById("room_type_form").value = codeChild.innerHTML.split("：")[0];
           });
         });
+
+        inputRoomTypeForm.addEventListener("blur", () => {
+          roomTypeSearchResult.innerHTML = "";
+        });
       };
-      inputRoomTypeForm.addEventListener("blur", () => {
-        roomTypeSearchResult.innerHTML = "";
-      });
     };
   });
 };
@@ -129,24 +136,26 @@ function areaSearch() {
     areaXHR.onload = () => {
       const areaSearchResult = document.getElementById("area_search_result");
       areaSearchResult.innerHTML = "";
+      let html = "";
+
       if (areaXHR.response) {
         const areas = areaXHR.response.areaKeyword;
         areas.forEach((area) => {
-          const areaChildElement = document.createElement("div");
-          areaChildElement.setAttribute("class", "code_child");
-          areaChildElement.setAttribute("id", area.name);
-          areaChildElement.innerHTML = area.code + "：" + area.name;
-          areaSearchResult.appendChild(areaChildElement);
+          html += `<div class="code_child" id="${area.name}">` + area.code + "：" + area.name + "</div>";
+        });
+        areaSearchResult.innerHTML = html;
 
-          const clickElement = document.getElementById(area.name);
-          clickElement.addEventListener("mousedown", () => {
-            document.getElementById("area_form").value = area.code;
+        const codeChildren = Array.from(document.getElementsByClassName("code_child"));
+        codeChildren.forEach((codeChild) => {
+          codeChild.addEventListener("mousedown", () => {
+            document.getElementById("area_form").value = codeChild.innerHTML.split("：")[0];
           });
         });
+
+        inputAreaForm.addEventListener("blur", () => {
+          areaSearchResult.innerHTML = "";
+        });
       };
-      inputAreaForm.addEventListener("blur", () => {
-        areaSearchResult.innerHTML = "";
-      });
     };
   });
 };
@@ -155,10 +164,11 @@ function areaSearch() {
 function tagSearch(i) {
   const num = i
   const tagForm = "gest_tag" + String(num) + "_code"
+
   const inputTagForm = document.getElementById(tagForm);
   inputTagForm.addEventListener("keyup", () => {
     const tagKeyword = document.getElementById(tagForm).value;
-    
+
     const tagXHR = new XMLHttpRequest();
     tagXHR.open("GET", `/gests/code/search/tag/?tagKeyword=${tagKeyword}`, true);
     tagXHR.responseType = "json";
@@ -167,24 +177,26 @@ function tagSearch(i) {
       const resultPlace = "tag_search_result" + String(num)
       const tagSearchResult = document.getElementById(resultPlace);
       tagSearchResult.innerHTML = "";
+      let html = "";
+
       if (tagXHR.response) {
         const tags = tagXHR.response.tagKeyword;
         tags.forEach((tag) => {
-          const tagChildElement = document.createElement("div");
-          tagChildElement.setAttribute("class", "code_child");
-          tagChildElement.setAttribute("id", tag.name);
-          tagChildElement.innerHTML = tag.code + "：" + tag.name;
-          tagSearchResult.appendChild(tagChildElement);
+          html += `<div class="code_child" id="${tag.name}">` + tag.code + "：" + tag.name + "</div>";
+        });
+        tagSearchResult.innerHTML = html;
 
-          const clickElement = document.getElementById(tag.name);
-          clickElement.addEventListener("mousedown", () => {
-            document.getElementById(tagForm).value = tag.code;
+        const codeChildren = Array.from(document.getElementsByClassName("code_child"));
+        codeChildren.forEach((codeChild) => {
+          codeChild.addEventListener("mousedown", () => {
+            document.getElementById(tagForm).value = codeChild.innerHTML.split("：")[0];
           });
         });
+
+        inputTagForm.addEventListener("blur", () => {
+          tagSearchResult.innerHTML = "";
+        });
       };
-      inputTagForm.addEventListener("blur", () => {
-        tagSearchResult.innerHTML = "";
-      });
     };
   });
 };
@@ -194,7 +206,7 @@ function planSearch() {
   const inputPlanForm = document.getElementById("plan_form");
   inputPlanForm.addEventListener("input", () => {
     const planKeyword = document.getElementById("plan_form").value;
-    
+
     const planXHR = new XMLHttpRequest();
     planXHR.open("GET", `/gests/code/search/plan/?planKeyword=${planKeyword}`, true);
     planXHR.responseType = "json";
@@ -202,29 +214,22 @@ function planSearch() {
     planXHR.onload = () => {
       const planSearchResult = document.getElementById("plan_search_result");
       planSearchResult.innerHTML = "";
-      let html = "";
+      c
+
       if (planXHR.response) {
         const plans = planXHR.response.planKeyword;
         plans.forEach((plan) => {
-          // const planChildElement = document.createElement("div");
-          // planChildElement.setAttribute("class", "code_child");
-          // planChildElement.setAttribute("id", plan.name);
-          // planChildElement.innerHTML = plan.code + "：" + plan.name;
-          // planSearchResult.appendChild(planChildElement);
           html += `<div class="code_child" id="${plan.name}">` + plan.code + "：" + plan.name + "</div>";
-
-          // clickElement = document.getElementById(plan.name);
-          // clickElement.addEventListener("mousedown", () => {
-          //   document.getElementById("plan_form").value = clickElement.innerHTML.split("：")[0];
-          // });
         });
         planSearchResult.innerHTML = html;
+
         const codeChildren = Array.from(document.getElementsByClassName("code_child"));
         codeChildren.forEach((codeChild) => {
           codeChild.addEventListener("mousedown", () => {
             document.getElementById("plan_form").value = codeChild.innerHTML.split("：")[0];
           });
-        })
+        });
+
         inputPlanForm.addEventListener("blur", () => {
           planSearchResult.innerHTML = "";
         });
