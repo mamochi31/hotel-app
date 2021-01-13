@@ -202,24 +202,33 @@ function planSearch() {
     planXHR.onload = () => {
       const planSearchResult = document.getElementById("plan_search_result");
       planSearchResult.innerHTML = "";
+      let html = "";
       if (planXHR.response) {
         const plans = planXHR.response.planKeyword;
         plans.forEach((plan) => {
-          const planChildElement = document.createElement("div");
-          planChildElement.setAttribute("class", "code_child");
-          planChildElement.setAttribute("id", plan.name);
-          planChildElement.innerHTML = plan.code + "：" + plan.name;
-          planSearchResult.appendChild(planChildElement);
+          // const planChildElement = document.createElement("div");
+          // planChildElement.setAttribute("class", "code_child");
+          // planChildElement.setAttribute("id", plan.name);
+          // planChildElement.innerHTML = plan.code + "：" + plan.name;
+          // planSearchResult.appendChild(planChildElement);
+          html += `<div class="code_child" id="${plan.name}">` + plan.code + "：" + plan.name + "</div>";
 
-          const clickElement = document.getElementById(plan.name);
-          clickElement.addEventListener("mousedown", () => {
-            document.getElementById("plan_form").value = plan.code;
+          // clickElement = document.getElementById(plan.name);
+          // clickElement.addEventListener("mousedown", () => {
+          //   document.getElementById("plan_form").value = clickElement.innerHTML.split("：")[0];
+          // });
+        });
+        planSearchResult.innerHTML = html;
+        const codeChildren = Array.from(document.getElementsByClassName("code_child"));
+        codeChildren.forEach((codeChild) => {
+          codeChild.addEventListener("mousedown", () => {
+            document.getElementById("plan_form").value = codeChild.innerHTML.split("：")[0];
           });
+        })
+        inputPlanForm.addEventListener("blur", () => {
+          planSearchResult.innerHTML = "";
         });
       };
-      inputPlanForm.addEventListener("blur", () => {
-        planSearchResult.innerHTML = "";
-      });
     };
   });
 };
