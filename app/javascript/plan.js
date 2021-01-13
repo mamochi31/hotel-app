@@ -8,30 +8,27 @@ function planShowDisplay () {
   const adult = document.getElementById("adult_form");
 
   // プランコードを入力した時にプランの情報が入力される処理
-  planForm.addEventListener("input", () => {
-    planForm.addEventListener("blur", () => {
-
-      // 入力されたプランコードを取得して非同期通信で送信
-      const planCode = planForm.value;
-      const XHR = new XMLHttpRequest();
-      XHR.open("GET", `show/plan/?planCode=${planCode}`, true);
-      XHR.responseType = "json";
-      XHR.send();
-      XHR.onload = () => {
-        // 返却されたデータがあった場合の処理
-        if (XHR.response.planCode != null) {
-          // 返却されたデータをHTMlに反映
-          const plan = XHR.response.planCode;
-          planName.innerHTML = plan.name;
-          planUnitPrice.innerHTML = plan.price + "円";
-          if (adult.value != "") {
-            planSumPrice.innerHTML = plan.price * adult.value + "円";
-          } else {
-            planSumPrice.innerHTML = plan.price + "円";
-          };
+  planForm.addEventListener("blur", () => {
+    // 入力されたプランコードを取得して非同期通信で送信
+    const planCode = planForm.value;
+    const XHR = new XMLHttpRequest();
+    XHR.open("GET", `show/plan/?planCode=${planCode}`, true);
+    XHR.responseType = "json";
+    XHR.send();
+    XHR.onload = () => {
+      // 返却されたデータがあった場合の処理
+      if (XHR.response.planCode != null) {
+        // 返却されたデータをHTMlに反映
+        const plan = XHR.response.planCode;
+        planName.innerHTML = plan.name;
+        planUnitPrice.innerHTML = plan.price + "円";
+        if (adult.value != "") {
+          planSumPrice.innerHTML = plan.price * adult.value + "円";
+        } else {
+          planSumPrice.innerHTML = plan.price + "円";
         };
       };
-    });
+    };
   });
 
   // プランを入力した後に、人数が入力・変更された時の処理
