@@ -214,7 +214,7 @@ function planSearch() {
     planXHR.onload = () => {
       const planSearchResult = document.getElementById("plan_search_result");
       planSearchResult.innerHTML = "";
-      c
+      let html = "";
 
       if (planXHR.response) {
         const plans = planXHR.response.planKeyword;
