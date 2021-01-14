@@ -250,7 +250,7 @@ if (location.pathname.match("gests/new") || location.pathname.match(regexShowURL
   });
 };
 
-if (location.pathname == "/gests/search"){
+if (location.pathname.match("/gests/search")){
   window.addEventListener("load", () => {
     roomTypeSearch();
     planSearch();
