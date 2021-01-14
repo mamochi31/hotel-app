@@ -17,6 +17,7 @@
   border: 1px solid black;
   height: 5vh;
   min-width: 10vw;
+  overflow: hidden;
 }
 
 .code_search_result {
