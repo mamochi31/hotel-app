@@ -40,7 +40,7 @@ class GestsController < ApplicationController
 
   def destroy
     @gest.destroy
-    redirect_to root_path
+    redirect_to gests_search_index_path
   end
 
   def search_index
