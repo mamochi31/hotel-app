@@ -1,34 +1,37 @@
-<h2>Sign up</h2>
+<header>
+  <div class="head">サインアップ</div>
+</header>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+<div class="main">
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true%>
+    <div class="field flex">
+      <%= f.label :name, class: "title" %><br />
+      <%= f.text_field :name, autofocus: true, class: "w20vw" %>
+    </div>
+
+    <div class="field flex margin_t_2vh">
+      <%= f.label :email, class: "title" %><br />
+      <%= f.email_field :email, autocomplete: "email", class: "w20vw" %>
+    </div>
+
+    <div class="field flex margin_t_2vh">
+      <%= f.label :password, class: "title" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "6 characters minimum", class: "w20vw" %>
+    </div>
+
+    <div class="field flex margin_t_2vh">
+      <%= f.label :password_confirmation, "Password", class: "title" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "confirmation", class: "w20vw" %>
+    </div>
+
+    <div class="actions margin_t_2vh">
+      <%= f.submit "Sign up", class: "w5vw" %>
+    </div>
+  <% end %>
+
+  <div class="margin_t_2vh">
+    <%= render "devise/shared/links" %>
   </div>
-
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autocomplete: "email" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "devise/shared/links" %>
+</div>
