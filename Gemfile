@@ -73,3 +73,6 @@ gem 'ransack'
 
 # N+1問題の検出
 gem 'bullet'
+
+# 日本語対応
+gem 'rails-i18n'

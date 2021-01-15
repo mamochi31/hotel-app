@@ -4,10 +4,12 @@
 
 <div class="main">
   <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= render "devise/shared/error_messages", resource: resource %>
+    <div>
+      <%= render "devise/shared/error_messages", resource: resource %>
+    </div>
 
     <div class="field flex">
-      <%= f.label :name, class: "title" %><br />
+      <%= f.label :name, "名前", class: "title" %><br />
       <%= f.text_field :name, autofocus: true, class: "w20vw" %>
     </div>
 
@@ -18,16 +20,16 @@
 
     <div class="field flex margin_t_2vh">
       <%= f.label :password, class: "title" %>
-      <%= f.password_field :password, autocomplete: "new-password", placeholder: "6 characters minimum", class: "w20vw" %>
+      <%= f.password_field :password, autocomplete: "new-password", placeholder: "6文字以上の半角英数で入力", class: "w20vw" %>
     </div>
 
     <div class="field flex margin_t_2vh">
-      <%= f.label :password_confirmation, "Password", class: "title" %><br />
-      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "confirmation", class: "w20vw" %>
+      <%= f.label :password_confirmation, "パスワード", class: "title" %><br />
+      <%= f.password_field :password_confirmation, autocomplete: "new-password", placeholder: "確認用", class: "w20vw" %>
     </div>
 
     <div class="actions margin_t_2vh">
-      <%= f.submit "Sign up", class: "w5vw" %>
+      <%= f.submit "新規登録", class: "w6vw" %>
     </div>
   <% end %>
 
