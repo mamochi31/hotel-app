@@ -14,15 +14,15 @@
       <%= f.password_field :password, autocomplete: "current-password", class: "w20vw" %>
     </div>
 
-    <% if devise_mapping.rememberable? %>
-      <div class="field flex margin_t_2vh">
-        <%= f.label :remember_me, class: "title" %>
-        <%= f.check_box :remember_me %>
-      </div>
-    <% end %>
+    <%# if devise_mapping.rememberable? %>
+      <%# <div class="field flex margin_t_2vh"> %>
+        <%#= f.label :remember_me, class: "title" %>
+        <%#= f.check_box :remember_me %>
+      <%# </div> %>
+    <%# end %>
 
     <div class="actions margin_t_2vh">
-      <%= f.submit "Log in", class: "w5vw" %>
+      <%= f.submit "ログイン", class: "w5vw" %>
     </div>
   <% end %>
   

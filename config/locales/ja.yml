@@ -2,3 +2,7 @@ ja:
   time:
     formats:
       default: "%Y/%m/%d"
+  activerecord:
+    attributes:
+      user:
+        name: 名前
