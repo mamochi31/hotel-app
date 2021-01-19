@@ -27,3 +27,6 @@ ja:
         plan_id: プラン
         area_id: 地域
         remark: 備考
+      area:
+        code: 地域コード
+        name: 地域名
