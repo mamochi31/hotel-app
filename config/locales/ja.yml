@@ -34,3 +34,6 @@ ja:
         code: プランコード
         name: プラン名
         price: 単価
+      rank:
+        code: ランクコード
+        name: ランク名
