@@ -41,3 +41,6 @@ ja:
         code: 部屋タイプコード
         name: 部屋タイプ名
         capacity: 定員
+      sex:
+        code: 性別コード
+        name: 性別名
