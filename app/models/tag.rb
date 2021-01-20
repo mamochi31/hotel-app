@@ -8,7 +8,11 @@ class Tag < ApplicationRecord
   # has_many :room_tags
   # has_many :rooms, through: :room_tags
 
-  with_options presence: true, uniqueness: true do
+  with_options presence: true, uniqueness: { case_sensitive: true } do
     validates :code, :name
+  end
+
+  with_options format: { with: /\A[a-z0-9]+\z/ } do
+    validates :code
   end
 end

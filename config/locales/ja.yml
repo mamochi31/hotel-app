@@ -6,3 +6,44 @@ ja:
     attributes:
       user:
         name: 名前
+      gest:
+        name1_kana: ゲスト１の名前
+        name2_kana: ゲスト２の名前
+        name3_kana: ゲスト３の名前
+        sex_id: 性別
+        rank_id: ランク
+        memo: メモ
+        company_kana: 会社名（フリガナ）
+        company_kanji: 会社名（漢字）
+        phone_number: 電話番号
+        arr_date: 到着日
+        night: 泊数
+        dep_date: 出発日
+        adult: 大人
+        child: 小人
+        baby: 幼児
+        number_of_room: 室数
+        room_type_id: 部屋タイプ
+        plan_id: プラン
+        area_id: 地域
+        remark: 備考
+      area:
+        code: 地域コード
+        name: 地域名
+      plan:
+        code: プランコード
+        name: プラン名
+        price: 単価
+      rank:
+        code: ランクコード
+        name: ランク名
+      room_type:
+        code: 部屋タイプコード
+        name: 部屋タイプ名
+        capacity: 定員
+      sex:
+        code: 性別コード
+        name: 性別名
+      tag:
+        code: タグコード
+        name: タグ名
