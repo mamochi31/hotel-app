@@ -44,3 +44,6 @@ ja:
       sex:
         code: 性別コード
         name: 性別名
+      tag:
+        code: タグコード
+        name: タグ名
