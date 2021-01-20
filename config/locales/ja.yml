@@ -37,3 +37,7 @@ ja:
       rank:
         code: ランクコード
         name: ランク名
+      room_type:
+        code: 部屋タイプコード
+        name: 部屋タイプ名
+        capacity: 定員
