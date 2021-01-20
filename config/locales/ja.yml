@@ -30,3 +30,7 @@ ja:
       area:
         code: 地域コード
         name: 地域名
+      plan:
+        code: プランコード
+        name: プラン名
+        price: 単価
